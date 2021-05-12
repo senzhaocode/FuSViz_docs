@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Usage manual &mdash; FuSViz 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQ" href="FAQ.html" />
+    <link rel="prev" title="Input" href="Input.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FuSViz
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Input.html">Input</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#load-genomic-annotations-and-input-files">Load genomic annotations and input files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fusviz-annotation-resources">FuSViz annotation resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-sv-and-mutation-files">Import SV and mutation files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description-of-input-file-for-rna-seq-sv-callings">Description of input file for RNA-seq SV callings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#description-of-input-file-for-dna-seq-sv-callings">Description of input file for DNA-seq SV callings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#description-of-input-file-for-mutation-profile">Description of input file for mutation profile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#table-overview-of-import-data">Table overview of import data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-sorting-filtering-and-prioritizing-svs">Table – sorting, filtering and prioritizing SVs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wordcloud-prevalence-of-sv-related-genes-across-samples">Wordcloud – prevalence of SV-related genes across samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#histogram-sv-distribution-across-samples">Histogram – SV distribution across samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correlation-small-variant-mutations-and-svs-burden">Correlation - small variant mutations and SVs burden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drug-target-association-with-cancer-related-genes">Drug target association with cancer-related genes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#circular-module">Circular module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#whole-genome-svs-overview">Whole genome SVs overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demo-svs-with-customized-settings">Demo SVs with customized settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integrate-svs-and-mutation-data">Integrate SVs and mutation data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zoom-in-circular-plot">Zoom-in circular plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-circular-plot">Download circular plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-module">Linear module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load-svs-in-bedpe-format-available-for-dna-seq-and-rna-seq-svs">Load SVs in “bedpe” format (available for DNA-seq and RNA-seq SVs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-svs-in-segment-format-only-available-for-dna-seq-svs">Load SVs in “segment” format (only available for DNA-seq SVs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-svs-in-bed-and-bedgraph-format-available-for-dna-seq-and-rna-seq-svs-and-mutation-profile">Load SVs in “bed” and “bedgraph” format (available for DNA-seq and RNA-seq SVs and mutation profile)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-user-defined-annotation-files">Upload user-defined annotation files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-genomic-coordinate-of-current-window">Display genomic coordinate of current window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-and-download-tracks">Save and download tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#illustrate-sv-pattern-by-combining-multiple-tracks-together">Illustrate SV pattern by combining multiple tracks together</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1-identify-recurrent-duplications-involving-an-upstream-enhancer-of-ar-gene">Example 1: identify recurrent duplications involving an upstream enhancer of AR gene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-a-comparison-of-breakpoint-distribution-at-dna-and-rna-level">Example 2: a comparison of breakpoint distribution at DNA and RNA level</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#two-way-module-rna-seq">Two-way module (RNA-seq)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-plot-only-available-for-rna-seq-svs">Overview_plot (only available for RNA-seq SVs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-plot-only-available-for-rna-seq-svs">Sample_plot (only available for RNA-seq SVs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#domain-plot-only-available-for-rna-seq-svs">Domain_plot (only available for RNA-seq SVs)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#network-module">Network module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dna-sv-network-plot">DNA_SV_network_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rna-sv-network-plot">RNA_SV_network_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dna-sv-network-hub-and-rna-sv-network-hub">DNA_SV_network_hub and RNA_SV_network_hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download">Download</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release_log.html">Release_log</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FuSViz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Usage manual</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Usage_manual.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage-manual">
+<h1>Usage manual<a class="headerlink" href="#usage-manual" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-genomic-annotations-and-input-files">
+<h2>Load genomic annotations and input files<a class="headerlink" href="#load-genomic-annotations-and-input-files" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="" src="_images/4.1.Data_Load_interface.png" />
+</div>
+<div class="section" id="fusviz-annotation-resources">
+<h3>FuSViz annotation resources<a class="headerlink" href="#fusviz-annotation-resources" title="Permalink to this headline">¶</a></h3>
+<p>Annotations with genome version hg19 and hg38 are provided, and they
+include:</p>
+<ul class="simple">
+<li>The gene, transcript and exon annotations (<strong>GENCODE v36</strong>
+comprehensive gene annotation on reference chromosomes for
+<a class="reference external" href="https://www.gencodegenes.org/human/release_36.html">hg38</a> and
+<a class="reference external" href="https://www.gencodegenes.org/human/release_36lift37.html">hg19</a>).
+NOTE: scaffolds and contigs are excluded in FuSViz analysis.</li>
+<li><a class="reference external" href="http://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&amp;hgta_group=map&amp;hgta_track=cytoBand&amp;hgta_table=cytoBand&amp;hgta_doSchema=describe+table+schema">Chromosome cytobands from UCSC Genome
+Browser</a></li>
+<li>Gene symbol and synonymous names - the resource for approved human
+gene nomenclature
+<a class="reference external" href="https://www.genenames.org/download/statistics-and-files/">HGNC</a>
+v2020-10-01</li>
+<li>Protein domains and motifs from
+<a class="reference external" href="https://www.ebi.ac.uk/interpro/download/">InterPro</a> database v83.
+NOTE: InterPro integrates signatures from databases (e.g. CDD, Pfam,
+SMART, Prosite and MobiDB). In terms of different sources, domain
+length, structure and name may be incongruent. Domains with
+overlapping intervals are merged into one and most common name
+represents its entry.</li>
+<li>Literature-mined database of tumor suppressor genes/proto-oncogenes –
+<a class="reference external" href="http://bionlp.bcgsc.ca/cancermine/">CancerMine</a> v32. NOTE: status
+of proto-oncogenes and tumor suppressor genes are determined
+according to the following protocol:<ol class="loweralpha">
+<li>A given gene with the support of at least two literatures that
+suggests an oncogenic or tumor suppressor role.</li>
+<li><strong>A one-way fisher exact test</strong> on the number of literatures with
+support evidence as proto-oncogene or tumor suppressor gene. If
+<code class="docutils literal notranslate"><span class="pre">pvalue</span> <span class="pre">&lt;=</span> <span class="pre">0.05</span></code>, <code class="docutils literal notranslate"><span class="pre">0.05</span> <span class="pre">&lt;</span> <span class="pre">pvalue</span> <span class="pre">&lt;</span> <span class="pre">0.95</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pvalue</span> <span class="pre">&gt;=</span> <span class="pre">0.95</span></code>, <em>oncogene</em>, <em>cancer-related gene</em> or <em>tumor
+suppressor gene</em> is tagged, respectively.</li>
+<li>Proto-oncogenes/tumor suppressor candidates from CancerMine that
+were found in the curated list of false positive cancer drivers
+defined by <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/30096302">Bailey et al, Cell
+2018</a> are
+excluded.</li>
+</ol>
+</li>
+<li>Drug target entry association with cancer from <a class="reference external" href="https://www.targetvalidation.org/">Open Targets
+Platform</a> - Database of
+molecularly targeted drugs and tractability aggregated from multiple
+sources (literature, pathways and mutations), release 2021-02-01.</li>
+</ul>
+</div>
+<div class="section" id="import-sv-and-mutation-files">
+<h3>Import SV and mutation files<a class="headerlink" href="#import-sv-and-mutation-files" title="Permalink to this headline">¶</a></h3>
+<p>In <code class="docutils literal notranslate"><span class="pre">Input</span></code> section, the steps of preparing input format for FuSViz is
+shown. Essentially, they are text format with different columns
+separated by a tab.</p>
+<div class="section" id="description-of-input-file-for-rna-seq-sv-callings">
+<h4>Description of input file for RNA-seq SV callings<a class="headerlink" href="#description-of-input-file-for-rna-seq-sv-callings" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Column 1st: <strong>chrom1</strong> – chromosome name of upstream partner’s
+breakpoint (must be started with “chr”).</div>
+<div class="line">Column 2nd: <strong>pos1</strong> - genomic coordinate of upstream partner’s
+breakpoint.</div>
+<div class="line">Column 3rd: <strong>gene1</strong> - symbol name of upstream partner gene.</div>
+<div class="line">Column 4th: <strong>chrom2</strong> - chromosome name of downstream partner’s
+breakpoint (must be started with “chr”).</div>
+<div class="line">Column 5th: <strong>pos2</strong> - genomic coordinate of downstream partner’s
+breakpoint.</div>
+<div class="line">Column 6th: <strong>gene2</strong> - symbol name of downstream partner gene.</div>
+<div class="line">Column 7th: <strong>name</strong> - sample/patient/case id.</div>
+<div class="line">Column 8th: <strong>split</strong> - the number of support reads across the
+breakpoint of SV.</div>
+<div class="line">Column 9th: <strong>span</strong> - the number of discordant read pairs
+supporting the SV.</div>
+<div class="line">Column 10th: <strong>evidence</strong> – SV is detected by which caller
+(?????).</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="description-of-input-file-for-dna-seq-sv-callings">
+<h4>Description of input file for DNA-seq SV callings<a class="headerlink" href="#description-of-input-file-for-dna-seq-sv-callings" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Column 1st: <strong>chrom1</strong> - chromosome name on which the first end of
+SV exists.</div>
+<div class="line">Column 2nd: <strong>start1</strong> - zero-based starting position of the first
+end of SV on chrom1.</div>
+<div class="line">Column 3rd: <strong>end1</strong> - one-based ending position of the first end
+of SV on chrom1.</div>
+<div class="line">Column 4th: <strong>chrom2</strong> - chromosome name on which the second end
+of SV exists.</div>
+<div class="line">Column 5th: <strong>start2</strong> - zero-based starting position of the
+second end of SV on chrom2.</div>
+<div class="line">Column 6th: <strong>end2</strong> - one-based ending position of the second end
+of SV on chrom2.</div>
+<div class="line">Column 7th: <strong>name</strong> - sample/patient/case id.</div>
+<div class="line">Column 8th: <strong>type</strong> - the type of SV (e.g. BND - translocation,
+DEL- deletion, DUP - duplication, INS - insertion, INV -
+inversion).</div>
+<div class="line">Column 9th: <strong>split</strong> - the number of support reads across the
+breakpoint of SV.</div>
+<div class="line">Column 10th: <strong>span</strong> - the number of discordant read pairs
+supporting the SV.</div>
+<div class="line">Column 11th: <strong>gene1</strong> - symbol name if the first end of SV within
+genic region, otherwise it is tagged as <code class="docutils literal notranslate"><span class="pre">*</span></code>.</div>
+<div class="line">Column 12th: <strong>gene2</strong> - symbol name if the second end of SV
+within genic region, otherwise it is tagged as <code class="docutils literal notranslate"><span class="pre">*</span></code>.</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="description-of-input-file-for-mutation-profile">
+<h4>Description of input file for mutation profile<a class="headerlink" href="#description-of-input-file-for-mutation-profile" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>A full description of the columns in MAF and their definitions is at
+<a class="reference external" href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#introduction">https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#introduction</a></div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="table-overview-of-import-data">
+<h2>Table overview of import data<a class="headerlink" href="#table-overview-of-import-data" title="Permalink to this headline">¶</a></h2>
+<p>Imported RNA and DNA SV callings and mutation profile are demonstrated
+in tab panels <code class="docutils literal notranslate"><span class="pre">SV</span> <span class="pre">from</span> <span class="pre">RNA-seq</span></code>, <code class="docutils literal notranslate"><span class="pre">SV</span> <span class="pre">from</span> <span class="pre">DNA-seq</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Mutation</span> <span class="pre">profile</span></code>, respectively.</p>
+<div class="section" id="table-sorting-filtering-and-prioritizing-svs">
+<h3>Table – sorting, filtering and prioritizing SVs<a class="headerlink" href="#table-sorting-filtering-and-prioritizing-svs" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.2.1.Table.png" />
+</div>
+<p>For example, in <code class="docutils literal notranslate"><span class="pre">SV</span> <span class="pre">from</span> <span class="pre">DNA-seq</span></code> tab panel, genes involved in SVs are
+highlighted by <strong>red</strong>, <strong>blue</strong> and <strong>orange</strong> if they are
+<em>proto-oncogenes</em>, <em>tumor suppressor genes</em> and <em>cancer-related genes</em>.</p>
+</div>
+<div class="section" id="wordcloud-prevalence-of-sv-related-genes-across-samples">
+<h3>Wordcloud – prevalence of SV-related genes across samples<a class="headerlink" href="#wordcloud-prevalence-of-sv-related-genes-across-samples" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.2.2.Wordcloud.png" />
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">SV</span> <span class="pre">relevant</span> <span class="pre">gene</span> <span class="pre">wordcloud</span></code> tab panel, mouse over a word shows the
+number of samples has such a gene involved in SV events (e.g. <em>TMPRSS2</em>:
+52). Font size of a word is adjusted via <code class="docutils literal notranslate"><span class="pre">Word</span> <span class="pre">size</span></code> slider; the
+number of words displayed in layout is controlled via <code class="docutils literal notranslate"><span class="pre">Gene</span> <span class="pre">freq</span></code>
+slider (words rendered with frequency &gt;= selected value); shape of
+wordclould is customized via <code class="docutils literal notranslate"><span class="pre">Word</span> <span class="pre">shape</span></code> select box (options:
+‘circle’, ‘square’ and ‘cardioid’).</p>
+</div>
+<div class="section" id="histogram-sv-distribution-across-samples">
+<h3>Histogram – SV distribution across samples<a class="headerlink" href="#histogram-sv-distribution-across-samples" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.2.3.Histogram.png" />
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">SV</span> <span class="pre">distribution</span> <span class="pre">across</span> <span class="pre">samples</span></code> tab panel, the histogram plots the
+number of SVs per sample which is used to identify any hyper-SV samples.
+For SV callings from DNA-seq, the frequency of each SV type per sample
+shows as well, suggesting whether there is a preference of SV to any
+specific category. Font size of sample name is adjusted via
+<code class="docutils literal notranslate"><span class="pre">Font</span> <span class="pre">size</span></code> slider; position of sample name is changed vertically via
+<code class="docutils literal notranslate"><span class="pre">X-axis</span> <span class="pre">pos</span></code> slider; position of sample name is rotated via
+<code class="docutils literal notranslate"><span class="pre">X-axis</span> <span class="pre">rotate</span></code> slider, bar space between samples is controlled via
+<code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">space</span></code> slider.</p>
+</div>
+<div class="section" id="correlation-small-variant-mutations-and-svs-burden">
+<h3>Correlation - small variant mutations and SVs burden<a class="headerlink" href="#correlation-small-variant-mutations-and-svs-burden" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.2.4.Correlation.png" />
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">Correlation</span> <span class="pre">of</span> <span class="pre">mutation</span> <span class="pre">and</span> <span class="pre">SV(DNA-seq)</span> <span class="pre">burden</span></code> tab panel, the
+relationship between small variant mutations and SVs burden is plotted
+if variant mutation profile is available. Burden values of mutations and
+SVs for a selected sample (e.g. dot in a dashline box) are shown in a
+table below (the value is <em>log2</em> transformed).</p>
+</div>
+<div class="section" id="drug-target-association-with-cancer-related-genes">
+<h3>Drug target association with cancer-related genes<a class="headerlink" href="#drug-target-association-with-cancer-related-genes" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.2.5.Drug_info.png" />
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">Drug</span> <span class="pre">target</span> <span class="pre">info</span></code> tab panel, genes involved in RNA-seq/DNA-seq SVs
+with an entry in <a class="reference external" href="https://www.targetvalidation.org/">Open Targets
+Platform</a> database are listed in a
+table with drug targeting annotation (e.g. <code class="docutils literal notranslate"><span class="pre">molecular_chembl_id</span></code> -
+available antineoplastic drug with
+<a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a> compound identifier;
+<code class="docutils literal notranslate"><span class="pre">target_chembl_id</span></code> - <a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a>
+compound identifier of the targeted gene; <code class="docutils literal notranslate"><span class="pre">interactive_type</span></code> - an
+interactive way of drug to the target gene).</p>
+</div>
+</div>
+<div class="section" id="circular-module">
+<h2>Circular module<a class="headerlink" href="#circular-module" title="Permalink to this headline">¶</a></h2>
+<p>Circular plot analyses of RNA-seq and DNA-seq SVs are quite similar,
+which are demonstrated in <code class="docutils literal notranslate"><span class="pre">RNA_SV_circular_plot</span></code> and
+<code class="docutils literal notranslate"><span class="pre">DNA_SV_circular_plot</span></code> tab panels, respectively. A few examples are
+shown below:</p>
+<div class="section" id="whole-genome-svs-overview">
+<h3>Whole genome SVs overview<a class="headerlink" href="#whole-genome-svs-overview" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.3.1.Whole_genome_SV_overview_new.png" />
+</div>
+<p>Press button <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">/</span> <span class="pre">Refresh</span></code>. Circular tracks displayed from outside
+to inner are <strong>Gene annotation</strong>, <strong>Cytoband annotation</strong> and <strong>SV
+links</strong>, respectively. Mouse over circular tracks pops up a window with
+specific information to the pointed site. For the pop-up window of a SV
+link, it denotes like
+<code class="docutils literal notranslate"><span class="pre">Link:</span> <span class="pre">chr17:4315849-4315849:UBE2G1</span> <span class="pre">|</span> <span class="pre">chr17:565471-565471:*</span> <span class="pre">(1)</span> <span class="pre">[TCGA-HC-7738]</span></code>,
+i.e. the breakpoint at chr17:4315849 (within gene UBE2G1) is linked to
+the breakpoint at chr17:565471 (in an intergenic region, marked by *),
+which is present in one sample (TCGA-HC-7738).</p>
+</div>
+<div class="section" id="demo-svs-with-customized-settings">
+<h3>Demo SVs with customized settings<a class="headerlink" href="#demo-svs-with-customized-settings" title="Permalink to this headline">¶</a></h3>
+<p>Users could change the settings in <code class="docutils literal notranslate"><span class="pre">RNA_SV_panel</span></code> or <code class="docutils literal notranslate"><span class="pre">DNA_SV_panel</span></code>
+for a customized analysis.</p>
+<div class="figure">
+<img alt="" src="_images/4.3.2.Demo_SVs_related_to_selected_genes.png" />
+</div>
+<p>Press button <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">/</span> <span class="pre">Refresh</span></code> after selecting <code class="docutils literal notranslate"><span class="pre">Gene</span></code> <em>ERG</em>. It plots
+SV events of <em>ERG</em> gene and relevant chromosomes (e.g. chromosome 1, 4,
+8, 10, 18 and 21). More customized investigations could be made by
+selecting <code class="docutils literal notranslate"><span class="pre">Chrom</span></code> or <code class="docutils literal notranslate"><span class="pre">Sample</span></code> boxes.</p>
+<div class="figure">
+<img alt="" src="_images/4.3.2.Demo_SVs_related_to_selected_sample.png" />
+</div>
+<p>In another example above, SVs overview of sample “TCGA-HC-A6AP” after
+filtering out intra-chromosome SVs with a distance &lt; 9Mb (NOTE: slider
+<code class="docutils literal notranslate"><span class="pre">Dist</span> <span class="pre">intra-chrom</span></code> is specific for filtering out intra-chromosome SVs
+with a distance less than a given value).</p>
+<div class="figure">
+<img alt="" src="_images/4.3.2.Demo_SVs_with_recurrence.png" />
+</div>
+<p>By changing the value of <code class="docutils literal notranslate"><span class="pre">Num</span> <span class="pre">of</span> <span class="pre">samples</span></code> slider, the most recurrent
+SVs (&gt;35 samples) in the cohort of samples are only displayed.</p>
+</div>
+<div class="section" id="integrate-svs-and-mutation-data">
+<h3>Integrate SVs and mutation data<a class="headerlink" href="#integrate-svs-and-mutation-data" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.3.3.Integrate_SVs_and_mutation_data.png" />
+</div>
+<p>Click Check box <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">mutation</span> <span class="pre">data</span></code> (as default, mutation types with
+no-silent consequence are chosen in <code class="docutils literal notranslate"><span class="pre">Mutation</span> <span class="pre">type</span></code>, please hold it as
+empty if all mutation types are included), then click button
+<code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">/</span> <span class="pre">Refresh</span></code>. <strong>Mutation profile</strong> track is added between
+<strong>Cytoband annotation</strong> and <strong>SV links</strong> tracks. As an example shows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chromosome</span><span class="p">:</span><span class="mi">17</span>   <span class="n">Position</span><span class="p">:</span><span class="mi">49619070</span>   <span class="n">Value</span><span class="p">:</span><span class="mi">8</span> <span class="n">Anno</span><span class="p">:</span><span class="n">SPOP</span><span class="p">:</span> <span class="n">A</span><span class="o">&gt;</span><span class="n">C</span><span class="p">(</span><span class="n">Missense_Mutation</span><span class="p">)[</span><span class="n">TCGA</span><span class="o">-</span><span class="n">ZG</span><span class="o">-</span><span class="n">A9ND</span><span class="p">,</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">XJ</span><span class="o">-</span><span class="n">A83G</span><span class="p">,</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">Y6</span><span class="o">-</span><span class="n">A8TL</span><span class="p">,</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">G9</span><span class="o">-</span><span class="mi">6369</span><span class="p">,</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">CH</span><span class="o">-</span><span class="mi">5788</span><span class="p">,</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">V1</span><span class="o">-</span><span class="n">A9OF</span><span class="p">]</span> <span class="o">|</span> <span class="n">A</span><span class="o">&gt;</span><span class="n">G</span><span class="p">(</span><span class="n">Missense_Mutation</span><span class="p">)[</span><span class="n">TCGA</span><span class="o">-</span><span class="n">EJ</span><span class="o">-</span><span class="mi">5531</span><span class="p">,</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">ZG</span><span class="o">-</span><span class="n">A9L6</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>It denotes that eight samples have a mutation variant at the genomic
+coordinate “chromosome 17:49619070”, in which two different missense
+mutations (A&gt;C and A&gt;G) is found in six and two samples, respectively.</p>
+</div>
+<div class="section" id="zoom-in-circular-plot">
+<h3>Zoom-in circular plot<a class="headerlink" href="#zoom-in-circular-plot" title="Permalink to this headline">¶</a></h3>
+<p>There are two ways for zoom-in: using <code class="docutils literal notranslate"><span class="pre">zoom</span> <span class="pre">spinner</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">mouse</span></code> or
+<code class="docutils literal notranslate"><span class="pre">double-click</span> <span class="pre">a</span> <span class="pre">targeted</span> <span class="pre">object</span></code>. For example, double-click a mutation
+dot (marked by arrow line) in the plot for zoom-in:</p>
+<div class="figure">
+<img alt="" src="_images/4.3.4.Zoom_in_by_double_click.png" />
+</div>
+</div>
+<div class="section" id="download-circular-plot">
+<h3>Download circular plot<a class="headerlink" href="#download-circular-plot" title="Permalink to this headline">¶</a></h3>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">circular</span> <span class="pre">plot</span></code> will save current page as a htmlwidget.</p>
+</div>
+</div>
+<div class="section" id="linear-module">
+<h2>Linear module<a class="headerlink" href="#linear-module" title="Permalink to this headline">¶</a></h2>
+<p>Linear module is built on basis of an embeddable interactive genome
+visualization Javascript library
+<a class="reference external" href="https://github.com/igvteam/igv.js">igv.js</a>. A htmlwidget is created
+to communicate between R and Javascript, and render the functionality of
+<a class="reference external" href="https://github.com/igvteam/igv.js">igv.js</a>. As default settings, IGV
+browser interface is automatically launched by selecting a genome
+reference version (hg19 or hg38) in
+<code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">genomic</span> <span class="pre">and</span> <span class="pre">transcriptomic</span> <span class="pre">annotations</span></code> of Introduction page.
+SVs are loaded in different types of genomic tracks and are illustrated
+per each chromosome. Currently, FuSViz accepts four types of tracks
+(i.e. <strong>bedpe</strong>, <strong>segment</strong>, <strong>bed</strong> and <strong>bedgraph</strong> formats). Users
+could configure settings of the loaded tracks in <code class="docutils literal notranslate"><span class="pre">SV_DNA</span></code>, <code class="docutils literal notranslate"><span class="pre">SV_RNA</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Mut</span></code> panels.</p>
+<div class="section" id="load-svs-in-bedpe-format-available-for-dna-seq-and-rna-seq-svs">
+<h3>Load SVs in “bedpe” format (available for DNA-seq and RNA-seq SVs)<a class="headerlink" href="#load-svs-in-bedpe-format-available-for-dna-seq-and-rna-seq-svs" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.4.1.Load_SVs_in_bedpe_format.png" />
+</div>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">DNA</span> <span class="pre">SV</span> <span class="pre">track</span> <span class="pre">in</span> <span class="pre">bedpe</span></code> button, intra-chromosome SVs are
+denoted as curves that link breakpoint sites. After click a curve, a
+pop-up window with a feature description of the selected SV, e.g.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Region1:</span> <span class="pre">chr17</span> <span class="pre">19901107-19901107</span></code> - breakpoint site/interval of
+first end of SV</li>
+<li><code class="docutils literal notranslate"><span class="pre">Region2:</span> <span class="pre">chr17</span> <span class="pre">63545711-63545711</span></code> - breakpoint site/interval of
+second end of SV</li>
+<li><code class="docutils literal notranslate"><span class="pre">Name:</span> <span class="pre">TCGA-EJ-A8FS</span></code> - sample name</li>
+<li><code class="docutils literal notranslate"><span class="pre">Score:</span> <span class="pre">1</span></code> - the number of samples has such SV</li>
+<li><code class="docutils literal notranslate"><span class="pre">Type:</span> <span class="pre">INV</span></code> - SV type as inversion</li>
+</ul>
+<p>Some options in setting panel are used to filter and prioritize SVs
+(e.g. <code class="docutils literal notranslate"><span class="pre">Min_Dist</span></code> and <code class="docutils literal notranslate"><span class="pre">Max_Dist</span></code> for filtering out SV with a distance
+out of a range; <code class="docutils literal notranslate"><span class="pre">SV_type</span></code> and <code class="docutils literal notranslate"><span class="pre">Sample</span></code> for prioritizing SVs of
+selected types or samples). Users can adjust the layout of bedpe track
+via configuration panel (e.g. <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">track</span> <span class="pre">height</span></code>).</p>
+</div>
+<div class="section" id="load-svs-in-segment-format-only-available-for-dna-seq-svs">
+<h3>Load SVs in “segment” format (only available for DNA-seq SVs)<a class="headerlink" href="#load-svs-in-segment-format-only-available-for-dna-seq-svs" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.4.2.Load_SVs_in_segment_format.png" />
+</div>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">DNA</span> <span class="pre">SV</span> <span class="pre">track</span> <span class="pre">in</span> <span class="pre">seg</span></code> button, two types of SVs (i.e.
+<strong>duplication</strong> and <strong>deletion</strong>) representing copy number aberrations
+(CNAs) are displayed, in which <strong>duplication</strong> and <strong>deletion</strong> of
+genomic segments are colored by <strong>red</strong> and <strong>blue</strong> bars, respectively.
+A pop-up window with feature description of the clicked bar, e.g.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">chr:</span> <span class="pre">chromosome</span></code> - chromosome name</li>
+<li><code class="docutils literal notranslate"><span class="pre">start:</span> <span class="pre">218326007</span></code> - start coordinate of segment interval</li>
+<li><code class="docutils literal notranslate"><span class="pre">end:</span> <span class="pre">221142594</span></code> - end coordinate of segment interval</li>
+<li><code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">1</span></code> (<strong>duplication</strong>) / <code class="docutils literal notranslate"><span class="pre">-1</span></code> (<strong>deletion</strong>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">sample:</span> <span class="pre">TCGA-HC-7738</span></code> - sample name</li>
+</ul>
+<p>Here, the layout of seg track is shown as <code class="docutils literal notranslate"><span class="pre">Expand</span></code> mode (default value
+in <code class="docutils literal notranslate"><span class="pre">Sample</span> <span class="pre">Height</span></code> setting). Users can adjust the size of track via
+<code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">track</span> <span class="pre">height</span></code> setting or choose <code class="docutils literal notranslate"><span class="pre">Squish</span></code> option in
+<code class="docutils literal notranslate"><span class="pre">Sample</span> <span class="pre">Height</span></code> setting to display all samples in configuration panel.
+An example below,</p>
+<div class="figure">
+<img alt="" src="_images/4.4.2.Load_SVs_in_segment_format_squish.png" />
+</div>
+<p>If users are interested in CNAs overlapping/within a target region, a
+subset of <strong>duplication</strong> and <strong>deletion</strong> are displayed via setting of
+<code class="docutils literal notranslate"><span class="pre">Chrom</span></code>, <code class="docutils literal notranslate"><span class="pre">Start</span></code> and <code class="docutils literal notranslate"><span class="pre">End</span></code> options (e.g.
+“chr21:38990663-40450349”) in <code class="docutils literal notranslate"><span class="pre">SV_DNA</span></code> panel.</p>
+<div class="figure">
+<img alt="" src="_images/4.4.2.Load_SVs_in_segment_format_subset.png" />
+</div>
+</div>
+<div class="section" id="load-svs-in-bed-and-bedgraph-format-available-for-dna-seq-and-rna-seq-svs-and-mutation-profile">
+<h3>Load SVs in “bed” and “bedgraph” format (available for DNA-seq and RNA-seq SVs and mutation profile)<a class="headerlink" href="#load-svs-in-bed-and-bedgraph-format-available-for-dna-seq-and-rna-seq-svs-and-mutation-profile" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="" src="_images/4.4.3.Load_SVs_in_bed_and_bedgraph_format.png" />
+</div>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">DNA</span> <span class="pre">SV</span> <span class="pre">breakpoints</span></code> (or <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">RNA</span> <span class="pre">SV</span> <span class="pre">breakpoints</span></code>)
+button, SV breakpoint tracks in bed (upper – colored by <strong>green</strong>) and
+bedgraph (below – colored by <strong>blue</strong>) format are loaded together. In
+bed format track, click a breakpoint and its feature description pops up
+like:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Name:</span> <span class="pre">TCGA-V1-A9OF</span></code> - sample name</li>
+<li><code class="docutils literal notranslate"><span class="pre">split:</span> <span class="pre">7</span></code> - the number of split read support</li>
+<li><code class="docutils literal notranslate"><span class="pre">span:</span> <span class="pre">29</span></code> - the number of discordant read pair support</li>
+<li><code class="docutils literal notranslate"><span class="pre">Type:</span> <span class="pre">DEL</span></code> - SV type as deletion</li>
+<li><code class="docutils literal notranslate"><span class="pre">Partner_chr:</span> <span class="pre">chrX</span></code> - the chromosome on which the other breakpoint
+of SV is located</li>
+<li><code class="docutils literal notranslate"><span class="pre">Partner_start</span></code> and <code class="docutils literal notranslate"><span class="pre">Partner_end:</span> <span class="pre">48673055</span> <span class="pre">and</span> <span class="pre">48673059</span></code> - the
+zero-based starting and one-based end position of the other
+breakpoint of the SV on <code class="docutils literal notranslate"><span class="pre">Partner_chr</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">chrX:</span> <span class="pre">95551524-95551528</span></code> - the chromosome, zero-based starting and
+one-based end position of the clicked SV breakpoint</li>
+</ul>
+<p>Bedgraph tracks display the frequency of recurrent breakpoints across
+samples. After clicking one peak, a pop-up window shows the number of
+frequency (e.g. <code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">1</span></code>) of breakpoint (e.g.
+<code class="docutils literal notranslate"><span class="pre">Position:</span> <span class="pre">57040074-57040076</span></code>).</p>
+<p>Importantly, breakpoint hotspot regions (highlighted in dashline boxes)
+could be identified in bed and bedgraph tracks. For example, a recurrent
+inversion between <code class="docutils literal notranslate"><span class="pre">chrX:2197061-2197064</span></code> and
+<code class="docutils literal notranslate"><span class="pre">chrX:48672810-48672813</span></code> is corresponding to marked breakpoint
+hotspots (see below).</p>
+<div class="figure">
+<img alt="" src="_images/4.4.3.Load_SVs_in_bed_and_bedgraph_format_hotspot.png" />
+</div>
+</div>
+<div class="section" id="upload-user-defined-annotation-files">
+<h3>Upload user-defined annotation files<a class="headerlink" href="#upload-user-defined-annotation-files" title="Permalink to this headline">¶</a></h3>
+<p>Users are allowed to upload customized annotation files in <strong>VCF</strong> (e.g.
+genetic variations), <strong>BED</strong> (e.g. regulatory elements - enhancers and
+TADs) and <strong>GTF</strong> (e.g. genes, transcripts, exons) formats to interpret
+SV patterns. Some requirements of a customized annotation file:</p>
+<ul class="simple">
+<li>Chromosome name <strong>MUST</strong> start with “chr”</li>
+<li>All upload files <strong>MUST</strong> be sorted by chromosome and genomic
+coordinate, then compressed and indexed using
+<a class="reference external" href="http://www.htslib.org/doc/tabix.html">bgzip</a> and
+<a class="reference external" href="http://www.htslib.org/doc/tabix.html">tabix</a></li>
+<li>The compressed file <strong>MUST</strong> upload together with its index file</li>
+<li>Make sure genomic coordinate in upload annotation files <strong>MUST</strong> be
+the same version as used in IGV browser</li>
+</ul>
+<p>For example, upload a gene annotation file in GTF format from GENCODE
+v35 and compare it with the default annotation track (NCBI RefSeq) of
+IGV browser</p>
+<div class="figure">
+<img alt="" src="_images/4.4.4.Upload_user_defined_annotation_files_1.png" />
+</div>
+<div class="figure">
+<img alt="" src="_images/4.4.4.Upload_user_defined_annotation_files_2.png" />
+</div>
+<p>In addition, read alignment files (e.g. <strong>BAM</strong> or <strong>CRAM</strong> format)
+could be uploaded for a simple sample analysis (see <strong>Appendix</strong> section
+for usage and case example).</p>
+</div>
+<div class="section" id="display-genomic-coordinate-of-current-window">
+<h3>Display genomic coordinate of current window<a class="headerlink" href="#display-genomic-coordinate-of-current-window" title="Permalink to this headline">¶</a></h3>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">coordinate</span></code> button</p>
+<div class="figure">
+<img alt="" src="_images/4.4.5.Display_genomic_coordinate_of_current_window.png" />
+</div>
+</div>
+<div class="section" id="save-and-download-tracks">
+<h3>Save and download tracks<a class="headerlink" href="#save-and-download-tracks" title="Permalink to this headline">¶</a></h3>
+<p>IGV browser provides a button <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">SVG</span></code> to download loaded tracks as
+SVG format for publication quality figure.</p>
+<div class="figure">
+<img alt="" src="_images/4.4.6.Save_and_download.png" />
+</div>
+</div>
+<div class="section" id="illustrate-sv-pattern-by-combining-multiple-tracks-together">
+<h3>Illustrate SV pattern by combining multiple tracks together<a class="headerlink" href="#illustrate-sv-pattern-by-combining-multiple-tracks-together" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="example-1-identify-recurrent-duplications-involving-an-upstream-enhancer-of-ar-gene">
+<h4>Example 1: identify recurrent duplications involving an upstream enhancer of AR gene<a class="headerlink" href="#example-1-identify-recurrent-duplications-involving-an-upstream-enhancer-of-ar-gene" title="Permalink to this headline">¶</a></h4>
+<p>The loading tracks from the top denote chromosome ideogram, IGV browser
+default gene annotation (NCBI RefSeq), SV in segment format
+(<strong>Duplication</strong> and <strong>Deletion</strong>), SV in bedpe format and user-defined
+bed file (enhancers_sort.bed.gz). Dashline box highlights a highly
+recurrent duplication of an upstream enhancer <em>GHXI66900</em> of <em>AR</em> gene
+in a cohort of samples.</p>
+<div class="figure">
+<img alt="" src="_images/4.4.7.Combine_different_tracks_together_example1.png" />
+</div>
+</div>
+<div class="section" id="example-2-a-comparison-of-breakpoint-distribution-at-dna-and-rna-level">
+<h4>Example 2: a comparison of breakpoint distribution at DNA and RNA level<a class="headerlink" href="#example-2-a-comparison-of-breakpoint-distribution-at-dna-and-rna-level" title="Permalink to this headline">¶</a></h4>
+<p>In loaded SV tracks from DNA-seq data, breakpoints within <em>TMPRSS2</em> and
+<em>ERG</em> (highlighted in grey boxes) show a scatter distribution, and no
+peak indicates a high recurrence. While breakpoints of SVs related to
+these two genes at RNA level are distributed at a few exon-exon
+boundaries with a high recurrent frequency. As introns constitute most
+of a gene in length and are enriched in breakpoints compared to exons,
+RNA splicing mechanism make most transcribed breakpoints aligned to exon
+boundary, simplifying the complexity of SVs in the RNA-seq data. As
+expected, in bedpe track, fusion events of <em>TMPRSS2-ERG</em> detected from
+RNA-seq in general link the splicing sites of two partner genes.</p>
+<div class="figure">
+<img alt="" src="_images/4.4.7.Combine_different_tracks_together_example2.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="two-way-module-rna-seq">
+<h2>Two-way module (RNA-seq)<a class="headerlink" href="#two-way-module-rna-seq" title="Permalink to this headline">¶</a></h2>
+<p>Two-way module is designed for analysis of a specific SV type (i.e.
+fusion gene/transcript) in a single panel, where two distant genomic
+intervals involved in a few fusion events are shown together with gene
+annotations. Three functional panels (i.e. <code class="docutils literal notranslate"><span class="pre">Overview_plot</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Sample_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">Domain_plot</span></code>) are provided to investigate fusion
+events in different dimensions.</p>
+<div class="section" id="overview-plot-only-available-for-rna-seq-svs">
+<h3>Overview_plot (only available for RNA-seq SVs)<a class="headerlink" href="#overview-plot-only-available-for-rna-seq-svs" title="Permalink to this headline">¶</a></h3>
+<p>It displays all fusion events related two partner genes and their
+recurrent frequency in a cohort of samples. In an example below, select
+partner gene names (e.g. <em>TMPRSS2</em> and <em>ERG</em>) in Select boxes
+<code class="docutils literal notranslate"><span class="pre">GeneA</span> <span class="pre">(*)</span></code> and <code class="docutils literal notranslate"><span class="pre">GeneB</span> <span class="pre">(*)</span></code> of setting panel, and press
+<code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">/</span> <span class="pre">Refresh</span></code>. The two-way plot view is from the top showing fusion
+events (curved lines with occurrence value in brackets), exon
+annotations of different transcript isoforms for upstream (colored by
+<strong>green</strong>) and downstream (colored by <strong>orange</strong>) partners, genomic
+coordinates of partner gene loci in Mb from chromosome, partner gene
+position in a chromosome ideogram.</p>
+<div class="figure">
+<img alt="" src="_images/4.5.1.Overview_plot_1.png" />
+</div>
+<p>Show the fusions of the chosen breakpoints in Select boxes
+<code class="docutils literal notranslate"><span class="pre">Breakpoint</span> <span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">Breakpoint</span> <span class="pre">B</span></code>. For example, breakpoint
+<code class="docutils literal notranslate"><span class="pre">41507950</span></code> of <em>TMPRSS2</em> is chosen; three fusion events with recurrent
+frequency (<code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">42</span></code> and <code class="docutils literal notranslate"><span class="pre">17</span></code>) are plotted on the top of two-way
+plot view (highlighted in dashline box).</p>
+<div class="figure">
+<img alt="" src="_images/4.5.1.Overview_plot_2.png" />
+</div>
+<p>Show annotations of the chosen transcripts in Select boxes
+<code class="docutils literal notranslate"><span class="pre">GeneA</span> <span class="pre">transcript</span></code> (<code class="docutils literal notranslate"><span class="pre">ENST00000679263</span></code> and <code class="docutils literal notranslate"><span class="pre">ENST00000679054</span></code>) and
+<code class="docutils literal notranslate"><span class="pre">GeneB</span> <span class="pre">transcript</span></code> (<code class="docutils literal notranslate"><span class="pre">ENST00000398910</span></code> and <code class="docutils literal notranslate"><span class="pre">ENST00000398919</span></code>), and
+filter out the fusion event with the number of split reads less than 8
+(see the setting of <code class="docutils literal notranslate"><span class="pre">Num</span> <span class="pre">of</span> <span class="pre">split</span> <span class="pre">reads</span></code> slider).</p>
+<div class="figure">
+<img alt="" src="_images/4.5.1.Overview_plot_3.png" />
+</div>
+<p>Users could add a vertical baseline by click-on check box
+<code class="docutils literal notranslate"><span class="pre">Ruler</span> <span class="pre">line:</span></code> to have a better view to the annotation of an breakpoint
+in context of ‘exon-intron’ structure for different transcript isoforms.</p>
+<div class="figure">
+<img alt="" src="_images/4.5.1.Overview_plot_5.png" />
+</div>
+<p>Zoom in/out and download plot</p>
+<div class="figure">
+<img alt="" src="_images/4.5.1.Overview_plot_4.png" />
+</div>
+</div>
+<div class="section" id="sample-plot-only-available-for-rna-seq-svs">
+<h3>Sample_plot (only available for RNA-seq SVs)<a class="headerlink" href="#sample-plot-only-available-for-rna-seq-svs" title="Permalink to this headline">¶</a></h3>
+<p>It illustrates a specific fusion event between two partner genes of one
+sample in context of transcript isoform annotations. To make a plot, the
+<code class="docutils literal notranslate"><span class="pre">GeneA</span></code>, <code class="docutils literal notranslate"><span class="pre">GeneB</span></code>, <code class="docutils literal notranslate"><span class="pre">Breakpoint</span> <span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">Breakpoint</span> <span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">Sample</span></code>
+must be selected. For example, the demo case below is from the top
+showing the position of partner genes in a chromosome ideogram, the
+fusion event (a curved line with number of split and span reads in
+bracket), exon annotations of different transcript isoforms for upstream
+(colored by <strong>green</strong>) and downstream (colored by <strong>orange</strong>) partners
+in which fusion parts are highlighted by grey box, genomic coordinates
+of partner gene loci in Mb from chromosome.</p>
+<div class="figure">
+<img alt="" src="_images/4.5.2.Per_sample_plot_1.png" />
+</div>
+<p>As a breakpoint has a various annotation (e.g. ‘at exon boundary’,
+‘within exon’ or ‘within intron’) in terms of different transcript
+isoforms, users can choose the most relevant transcript in Select boxes
+<code class="docutils literal notranslate"><span class="pre">GeneA</span></code> and <code class="docutils literal notranslate"><span class="pre">GeneB</span> <span class="pre">transcript</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">ENST00000679054</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ENST00000417133</span></code>) to demonstrate the fusion event.</p>
+<div class="figure">
+<img alt="" src="_images/4.5.2.Per_sample_plot_2.png" />
+</div>
+<p>For plotting read coverage using alignment file in a single sample
+analysis, see <strong>Appendix</strong> section.</p>
+</div>
+<div class="section" id="domain-plot-only-available-for-rna-seq-svs">
+<h3>Domain_plot (only available for RNA-seq SVs)<a class="headerlink" href="#domain-plot-only-available-for-rna-seq-svs" title="Permalink to this headline">¶</a></h3>
+<p>Domain plot shows the biological consequence of chimeric transcripts in
+context of protein domain and motif annotations. For example, after
+choose partner genes (<em>TMPRSS2</em> and <em>ERG</em>) in Select boxes <code class="docutils literal notranslate"><span class="pre">GeneA</span></code> and
+<code class="docutils literal notranslate"><span class="pre">GeneB</span></code>, the transcript isoforms with any domain and motif annotations
+are bold in Select boxes <code class="docutils literal notranslate"><span class="pre">TranscriptA</span></code> and <code class="docutils literal notranslate"><span class="pre">TranscriptB</span></code>. Choose
+relevant ones, then press <code class="docutils literal notranslate"><span class="pre">Activate</span></code> button.</p>
+<div class="figure">
+<img alt="" src="_images/4.5.3.Domain_plot_1.png" />
+</div>
+<p>In plot view panel, motif &amp; domain annotations and the selected
+transcripts with concatenated exons for GeneA (colored by <strong>green</strong>) and
+GeneB (colored by <strong>orange</strong>) are shown in upper and lower half layout,
+respectively. Colored arrow lines denote different biological
+consequence of translated chimeric transcripts (i.e. <code class="docutils literal notranslate"><span class="pre">red:</span> <span class="pre">outframe</span></code>,
+<code class="docutils literal notranslate"><span class="pre">blue:</span> <span class="pre">In-frame</span></code>, <code class="docutils literal notranslate"><span class="pre">'#008080':</span> <span class="pre">truncate-loss</span></code>, <code class="docutils literal notranslate"><span class="pre">black:</span> <span class="pre">unknown</span></code>).</p>
+<p>Show biological consequence of a specific chimeric transcript with the
+selected breakpoints (e.g. <code class="docutils literal notranslate"><span class="pre">41498119</span></code> and <code class="docutils literal notranslate"><span class="pre">38423561</span></code> are chosen in
+Select box <code class="docutils literal notranslate"><span class="pre">Breakpoint</span> <span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">Breakpoint</span> <span class="pre">B</span></code>, see below).</p>
+<div class="figure">
+<img alt="" src="_images/4.5.3.Domain_plot_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="network-module">
+<h2>Network module<a class="headerlink" href="#network-module" title="Permalink to this headline">¶</a></h2>
+<p>The aim of this module is to identify a hub (i.e. a node with a high
+degree of connection) in SV interaction network and reveal the impact of
+SV events on functionality of involved genes. SVs with at least one end
+within the pre-defined <strong>cancer</strong> geneset (from CancerMine) are included
+the analysis. In the network, <em>node</em> represents either a gene or an
+intergenic interval that harbors breakpoints of SVs; while <em>edge</em> shows
+interactive SVs events between two nodes. The results are presented in
+four functional panels (<code class="docutils literal notranslate"><span class="pre">RNA_SV_network_plot</span></code>, <code class="docutils literal notranslate"><span class="pre">RNA_SV_network_hub</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DNA_SV_network_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">DNA_SV_network_hub</span></code>).</p>
+<div class="section" id="dna-sv-network-plot">
+<h3>DNA_SV_network_plot<a class="headerlink" href="#dna-sv-network-plot" title="Permalink to this headline">¶</a></h3>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">/</span> <span class="pre">Refresh</span></code> button in <code class="docutils literal notranslate"><span class="pre">DNA_SV_panel</span></code> settings. An
+overview of DNA SV interaction network is plotted.</p>
+<div class="figure">
+<img alt="" src="_images/4.6.1.DNA_network_plot_1.png" />
+</div>
+<p>Choose a node name (e.g. <em>TP53</em>) in Select box <code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">search</span></code> of
+<code class="docutils literal notranslate"><span class="pre">DNA_SV_panel</span></code>, then <em>TP53</em> is centralized by its connected nodes. The
+degree of <em>TP53</em> (which is listed in <code class="docutils literal notranslate"><span class="pre">DNA_network_hub</span></code> panel) suggests
+its structural variation complexity. All nodes are marked by five
+different colors (<code class="docutils literal notranslate"><span class="pre">red:</span> <span class="pre">oncogenes</span></code>, <code class="docutils literal notranslate"><span class="pre">blue:</span> <span class="pre">tumor</span> <span class="pre">suppressor</span> <span class="pre">genes</span></code>,
+<code class="docutils literal notranslate"><span class="pre">orange:</span> <span class="pre">cancer-related</span> <span class="pre">genes</span></code>, <code class="docutils literal notranslate"><span class="pre">grey:</span> <span class="pre">the</span> <span class="pre">other</span> <span class="pre">genes</span></code>,
+<code class="docutils literal notranslate"><span class="pre">black:</span> <span class="pre">intergenic</span></code> - one end of SV at intergenic regions). In terms
+of a tumor suppressor feature and a high degree of connection, an
+outcome of SVs involving <em>TP53</em> most likely results in a loss of
+function through breaking up the gene.</p>
+<div class="figure">
+<img alt="" src="_images/4.6.1.DNA_network_plot_2.png" />
+</div>
+<p>The gene name pops up after click a node in the network plot. User could
+adjust font size and position of gene name using Numeric Input box
+<code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">font</span> <span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">font</span> <span class="pre">pos</span></code> of <code class="docutils literal notranslate"><span class="pre">DNA_SV_panel</span></code>. The
+thickness of an edge indicates the number of samples supporting the SV
+event between nodes, and mouseover an edge pops up the value of sample
+number (e.g. <code class="docutils literal notranslate"><span class="pre">Num_sample:</span> <span class="pre">1</span></code>). The length of edge could be adjusted by
+Numeric Input box <code class="docutils literal notranslate"><span class="pre">Spring</span> <span class="pre">Constant</span></code> (i.e. the smaller value, the
+longer edge).</p>
+<p>For another example, choose <em>ERG</em> in Select box <code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">search</span></code>, then a
+more complex sub-network is shown. In addition to <em>ERG</em>, three other
+hubs (<em>ETV1</em>, <em>SLC45A3</em> and <em>TMPRSS2</em>) with a degree of 8, 6 and 10 (see
+<code class="docutils literal notranslate"><span class="pre">DNA_SV_network_hub</span></code> panel) are highlighted in dash box. They are
+enriched in SVs and highly interact with each other, which consist of a
+functional module. Of them, the <em>TMPRSS2-ERG</em> has an occurrence in 22
+samples (see a pop-up window). Importantly, all the four hubs are
+<strong>oncogenic</strong> features, and it will be interesting to see whether SV
+events between them could be transcribed at RNA level.</p>
+<div class="figure">
+<img alt="" src="_images/4.6.1.DNA_network_plot_3.png" />
+</div>
+</div>
+<div class="section" id="rna-sv-network-plot">
+<h3>RNA_SV_network_plot<a class="headerlink" href="#rna-sv-network-plot" title="Permalink to this headline">¶</a></h3>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Plot</span> <span class="pre">/</span> <span class="pre">Refresh</span></code> button in <code class="docutils literal notranslate"><span class="pre">RNA_SV_panel</span></code> settings. An
+overview of RNA SV interaction network is plotted, which looks very
+similar to the <code class="docutils literal notranslate"><span class="pre">DNA_SV_network_plot</span></code> except for edges with arrow
+lines. As most of SV events observed at RNA level are transcribed as
+fusion transcripts, an arrow indicates the transcription direction from
+upstream to downstream partners.</p>
+<div class="figure">
+<img alt="" src="_images/4.6.2.RNA_network_plot_1.png" />
+</div>
+<p>Choose <em>ERG</em> in Select box <code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">search</span></code> of <code class="docutils literal notranslate"><span class="pre">RNA_SV_panel</span></code>, then the
+sub-network with centralized <em>ERG</em> is focused on. In spite of less
+complex than that in <code class="docutils literal notranslate"><span class="pre">DNA_SV</span> <span class="pre">network_plot</span></code>, the four hubs (<em>ERG</em>,
+<em>SLC45A3</em>, <em>ETV1</em> and <em>TMPRSS2</em> colored as <strong>oncogenes</strong>) highlighted in
+dashline boxes are identified. The fusion transcripts, as indicated by
+arrows, may give rise to an increase of downstream partner expression
+(e.g. <em>ERG</em> and <em>ETV1</em>) due to a “hitchhiking effect” of overexpressed
+upstream partner (e.g. <em>TMPRSS2</em> and <em>SLC45A3</em>).</p>
+<div class="figure">
+<img alt="" src="_images/4.6.2.RNA_network_plot_2.png" />
+</div>
+</div>
+<div class="section" id="dna-sv-network-hub-and-rna-sv-network-hub">
+<h3>DNA_SV_network_hub and RNA_SV_network_hub<a class="headerlink" href="#dna-sv-network-hub-and-rna-sv-network-hub" title="Permalink to this headline">¶</a></h3>
+<p>A table summarizes network centrality/hub scores. The <code class="docutils literal notranslate"><span class="pre">nodes</span></code> column
+is marked by three colors (<code class="docutils literal notranslate"><span class="pre">red:</span> <span class="pre">oncogenes</span></code>,
+<code class="docutils literal notranslate"><span class="pre">blue:</span> <span class="pre">tumor</span> <span class="pre">suppressor</span> <span class="pre">genes</span></code> and <code class="docutils literal notranslate"><span class="pre">orange:</span> <span class="pre">cancer-related</span> <span class="pre">genes</span></code>).
+Two different values, <code class="docutils literal notranslate"><span class="pre">degree</span></code> and <code class="docutils literal notranslate"><span class="pre">score</span></code>, represent the number of
+edges linking to a node and the number of samples involving SV events
+for a node, respectively. By ranking table via <code class="docutils literal notranslate"><span class="pre">degree</span></code> and <code class="docutils literal notranslate"><span class="pre">score</span></code>,
+users could identify the hub with high structural variation complexity.</p>
+<div class="figure">
+<img alt="" src="_images/4.6.3.DNA_RNA_network_hub.png" />
+</div>
+</div>
+<div class="section" id="download">
+<h3>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h3>
+<p>The network is saved as png format by pressing <code class="docutils literal notranslate"><span class="pre">Export</span> <span class="pre">as</span> <span class="pre">png</span></code> button.
+In general, <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Navigation</span></code> is clicked out in order to download a
+full view of plot.</p>
+<div class="figure">
+<img alt="" src="_images/4.6.4.Download_network.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="FAQ.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Input.html" class="btn btn-neutral float-left" title="Input" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Sen ZHAO.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
