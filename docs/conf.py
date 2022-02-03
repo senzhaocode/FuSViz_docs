@@ -25,13 +25,13 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # -- Project information -----------------------------------------------------
 
 project = u'FuSViz'
-copyright = u'2021, Sen ZHAO'
+copyright = u'2022, Sen ZHAO'
 author = u'Sen ZHAO'
 
 # The short X.Y version
-version = u'0.1.0'
+version = u'1.0'
 # The full version, including alpha/beta/rc tags
-release = u'0.1.0'
+release = u'1.0'
 
 
 # -- General configuration ---------------------------------------------------

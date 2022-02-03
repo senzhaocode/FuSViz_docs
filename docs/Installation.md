@@ -1,13 +1,40 @@
 ## Installation
 
-### Prerequisites
+### Deploy with docker
+
+#### Install Docker engine in your OS platform
+
+* Install [Docker on Linux](https://docs.docker.com/engine/installation/linux/)
+* Install [Docker on MacOS](https://docs.docker.com/engine/installation/mac/)
+* Install [Docker on Windows](https://docs.docker.com/docker-for-windows/) (NOTE: We have not yet done enough testing on the Windows platform, so we would like to recieve more feedback on it)
+
+#### Pull pre-built FuSViz image (release version) from docker hub
+
+Run `docker pull senzhao/fusviz_shiny_app:1.0`, then check the image by typing `docker images`
+
+Optional: if user would like to build image (developmental version), download soruce code and change to directory `cd ~/FuSViz-master`; run `docker build --rm -t senzhao/fusviz_shiny_app:latest -f Dockerfile .`.
+
+#### Launch FuSViz app
+
+Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.0`; then open web browser and input address `127.0.0.1:4000`
+
+**NOTE**: the following browsers have been tested and are supported well
+
+* Safari (version >= 14.0)
+* Mozilla Firefox (version >= 83.0)
+* Google Chrome (version >= 87.0.4280.67 official build x86_64)
+* Windows IE (version >= 10) may work, but does not guarantee
+
+### Deploy without docker
+
+#### Prerequisite
 
 FuSViz is a shiny app and requires R working environment:
 
 * __R (>=4.0.0)__: https://www.r-project.org/; [RStudio](https://rstudio.com/products/rstudio/download/#download) is recommended but not mandatory. 
 * For windows users, if an earlier version of R (< 4.0) is present in the system, please uninstall it firstly and make sure only R >=4.0 is available.
 
-### Installation
+#### Installation
 
 	if (! require('remotes')) install.packages('remotes')
 	remotes::install_github('senzhaocode/FuSViz')
@@ -78,24 +105,12 @@ FuSViz is a shiny app and requires R working environment:
 
 	  * Need for **Debian or Ubuntu**: `sudo apt install libcurl4-openssl-dev`
 
-### Launch FuSViz app using localhost
+#### Launch FuSViz app using localhost
 
 	source(file.path(system.file("app", package = "FuSViz"), "global.R"), local = TRUE, chdir = TRUE)
 	FuSViz_app()
 
-**NOTE**: the following browsers have been tested and are supported well
-
-* Safari (version >= 14.0)
-* Mozilla Firefox (version >= 83.0)
-* Google Chrome (version >= 87.0.4280.67 official build x86_64)
-* Windows IE (version >= 10) may work, but does not guarantee
-
-### Host on a single server (online mode)
+### Host FuSViz on a single server
 
 Users could host FuSViz Shiny application at server end (only linux OS distributions are supported) using Shiny Server.
 Please follow the installation and adminstration of [Shiny Server](https://www.rstudio.com/products/shiny/download-server/)
-
-### Online availability
-
-FuSViz shiny app is free available at XXXXXXXXXXXXXX
-
