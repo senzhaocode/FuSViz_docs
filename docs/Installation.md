@@ -4,9 +4,9 @@
 
 #### Install Docker engine in your OS platform
 
-* Install [Docker on Linux](https://docs.docker.com/engine/installation/linux/)
-* Install [Docker on MacOS](https://docs.docker.com/engine/installation/mac/)
-* Install [Docker on Windows](https://docs.docker.com/docker-for-windows/) (NOTE: We have not yet done enough testing on the Windows platform, so we would like to recieve more feedback on it)
++ Install [Docker on Linux](https://docs.docker.com/engine/installation/linux/)
++ Install [Docker on MacOS](https://docs.docker.com/engine/installation/mac/)
++ Install [Docker on Windows](https://docs.docker.com/docker-for-windows/) (NOTE: We have not yet done enough testing on the Windows platform, so we would like to recieve more feedback on it)
 
 #### Pull pre-built FuSViz image (release version) from docker hub
 
@@ -20,10 +20,10 @@ Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.0`; then open web b
 
 **NOTE**: the following browsers have been tested and are supported well
 
-* Safari (version >= 14.0)
-* Mozilla Firefox (version >= 83.0)
-* Google Chrome (version >= 87.0.4280.67 official build x86_64)
-* Windows IE (version >= 10) may work, but does not guarantee
++ Safari (version >= 14.0)
++ Mozilla Firefox (version >= 83.0)
++ Google Chrome (version >= 87.0.4280.67 official build x86_64)
++ Windows IE (version >= 10) may work, but does not guarantee
 
 ### Deploy without docker
 
@@ -31,8 +31,8 @@ Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.0`; then open web b
 
 FuSViz is a shiny app and requires R working environment:
 
-* __R (>=4.0.0)__: https://www.r-project.org/; [RStudio](https://rstudio.com/products/rstudio/download/#download) is recommended but not mandatory. 
-* For windows users, if an earlier version of R (< 4.0) is present in the system, please uninstall it firstly and make sure only R >=4.0 is available.
++ __R (>=4.0.0)__: https://www.r-project.org/; [RStudio](https://rstudio.com/products/rstudio/download/#download) is recommended but not mandatory. 
++ For windows users, if an earlier version of R (< 4.0) is present in the system, please uninstall it firstly and make sure only R >=4.0 is available.
 
 #### Installation
 
