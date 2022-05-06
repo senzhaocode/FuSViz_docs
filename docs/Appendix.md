@@ -1,22 +1,32 @@
 ## Appendix
 
-Although FuSViz is designed for SV interpretation and visualization of multiple samples, it could be utilized for single sample analysis together with read alignments as well. Currently, import read alignment files is allowed in **Linear** and **Two-way** modules.
+Although FuSViz is designed for SV interpretation and visualization of multiple samples, it could be utilized for single sample analysis together with read alignments as well. Currently, read alignment import is allowed in **Linear** and **Two-way** modules.
 
-### Load local alignment file in Linear module
+### Quality control of SVs via read alignment in Linear module
 
-Alignment and index files need to be uploaded together. For example, import an RNA-seq alignment in BAM format.
+1. Upload alignment and index files together. For example, import an RNA-seq alignment in BAM format.
 
 ![](6.1.Load_local_alignment_track_in_Linear_module_1.png)
 
+2. Click genomic breakpoint of one SV in Table overview section (e.g. _692478_ or _35549292_ in tab panel `SV from RNA-seq`)
+
 ![](6.1.Load_local_alignment_track_in_Linear_module_2.png)
 
-Here, a **split-window** mode is used to investigate alignment quality of split reads or discordant read pairs mapped to different genomic loci. The read pair highlighted in dash boxes shows a discordant mapping feature to partner genes ABHD12B and RCC1, respectively.
+3. Inspect read alignment supporting the clicked breakpoint in **Linear module**
+
+![](6.1.Load_local_alignment_track_in_Linear_module_3.png)
+
+A **split-window** mode is used to investigate alignment quality of split reads mapped to ERICH1 and UNC5D genes. Soft-clip parts of read aligments (black box) at ERICH1 and UNC5D breakpoints match to SV sequences of UNC5D and ERICH1 (black dash lines), respectively.
 
 ### Load alignment track from URL address in Linear module
 
 If alignment data is shared via cloud or hosted in a remote server, users can load it together with index via URL web address. For example,
 
 ![](6.2.Load_alignment_track_from_URL_address.png)
+
+![](6.1.Load_local_alignment_track_in_Linear_module_4.png)
+
+A **split-window** mode is used to investigate alignment quality of discordant read pairs mapped to different genomic loci. The read pair highlighted in dash boxes shows a discordant mapping feature to partner genes ABHD12B and RCC1, respectively.
 
 ### Visualize SV event together with read coverage using Two-way module
 
