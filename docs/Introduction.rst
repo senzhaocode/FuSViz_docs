@@ -34,9 +34,8 @@ The tool is attempting to address the following questions:
    in a systematic way, with an emphasis on an integration of SVs from
    DNA-seq and RNA-seq data.
 
-2. Inspect SVs via bird’s eye view; identify and filter possible
-   artifacts with poor read support; prioritize SVs with a high
-   confidence.
+2. Quality control (QC) of SVs via read alignment; identify and filter
+   possible artifacts; prioritize SVs with a high confidence.
 
 3. Highlight and rank cancer-relevant genes (e.g. proto-oncogenes or
    tumor suppressor genes) that are enriched in SV events.
