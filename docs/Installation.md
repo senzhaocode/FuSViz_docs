@@ -10,20 +10,20 @@
 
 #### Pull pre-built FuSViz image (release version) from docker hub
 
-Run `docker pull senzhao/fusviz_shiny_app:1.0`, then check the image by typing `docker images`
+Run `docker pull senzhao/fusviz_shiny_app:1.4.0`, then check the image by typing `docker images`
 
 Optional: if user would like to build image (developmental version), download soruce code and change to directory `cd ~/FuSViz-master`; run `docker build --rm -t senzhao/fusviz_shiny_app:latest -f Dockerfile .`.
 
 #### Launch FuSViz app
 
-Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.0`; then open web browser and input address `127.0.0.1:4000`
+Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.4.0`; then open web browser and input address `127.0.0.1:4000`
 
 **NOTE**: the following browsers have been tested and are supported well
 
 + Safari (version >= 14.0)
 + Mozilla Firefox (version >= 83.0)
 + Google Chrome (version >= 87.0.4280.67 official build x86_64)
-+ Windows IE (version >= 10) may work, but does not guarantee
++ Microsoft Edge (version >= 90)
 
 ### Deploy without docker
 
@@ -62,7 +62,8 @@ FuSViz is a shiny app and requires R working environment:
 	  * For **Debian or Ubuntu**: `sudo apt-get install libxml2-dev`; For **Fedora, CentOS or RHEL**: `sudo yum install libxml2-devel`
 	  * If root privillege is not available, users have to download [source code](http://xmlsoft.org/downloads.html) and install at $HOME directory. For example,
 	
-			./configure --prefix=/libxml2_path # if ./configure file does not exist, please run ./autogen.sh --prefix=/libxml2_path instead.
+			./configure --prefix=/libxml2_path 
+			# if ./configure file does not exist, please run ./autogen.sh --prefix=/libxml2_path instead.
 			make && make install
 			C_INCLUDE_PATH=/libxml2_path/include
 			export C_INCLUDE_PATH
@@ -71,7 +72,7 @@ FuSViz is a shiny app and requires R working environment:
 			LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/libxml2_path/lib
 			export LD_LIBRARY_PATH
 
-	  * Install R package [jpeg](https://cran.r-project.org/web/packages/jpeg/index.html): `install.packages("jpeg")`
+	  * Install R package [xml2](https://cran.r-project.org/web/packages/XML/index.html): `install.packages("xml2")`
 
 3. Install software library [libjpeg](https://ijg.org) - a dependency of R package [jpeg](https://cran.r-project.org/web/packages/jpeg/index.html)
 
@@ -103,9 +104,9 @@ FuSViz is a shiny app and requires R working environment:
 
 5. Install software library [libcurl](https://curl.se/libcurl/) - a dependency of R package [RCurl](https://cran.r-project.org/web/packages/RCurl/index.html)
 
-	  * Need for **Debian or Ubuntu**: `sudo apt install libcurl4-openssl-dev`
+	  * For **Debian or Ubuntu**: `sudo apt install libcurl4-openssl-dev`
 
-#### Launch FuSViz app using localhost
+#### Launch FuSViz app via localhost
 
 	source(file.path(system.file("app", package = "FuSViz"), "global.R"), local = TRUE, chdir = TRUE)
 	FuSViz_app()
