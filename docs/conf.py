@@ -29,9 +29,9 @@ copyright = u'2022, Sen ZHAO'
 author = u'Sen ZHAO'
 
 # The short X.Y version
-version = u'1.0'
+version = u'1.4'
 # The full version, including alpha/beta/rc tags
-release = u'1.0'
+release = u'1.4'
 
 
 # -- General configuration ---------------------------------------------------
