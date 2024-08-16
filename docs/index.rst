@@ -10,6 +10,6 @@ Welcome to FuSViz's documentation!
    Installation
    Input
    Usage_manual
-   FAQ
    Appendix
+   FAQ
    Release_log
