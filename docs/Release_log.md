@@ -163,7 +163,7 @@
 		[115] lifecycle_1.0.4             httr_1.4.7                 
 		[117] bit64_4.0.5    
 
-#### v1.7.0 - Aug 15th 2023
+#### v1.7.0 - Aug 15th 2024
 
 * Dependencies of FuSViz, R session info `sessionInfo()`:
 
