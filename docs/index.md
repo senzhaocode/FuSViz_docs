@@ -14,8 +14,8 @@ Welcome to FuSViz's documentation!
    Installation
    Input
    Usage
-   FAQ
    Appendix
+   FAQ
    Release_log
 
 Indices and tables
