@@ -35,10 +35,12 @@ Description of input format for RNA-seq SV calls
      breakpoint of SV.
    | Column 9th: **span** - the number of discordant read pairs
      supporting the SV.
-   | Column 10th: **strand1** – The strand direction of upstream fusion
+   | Column 10th: **strand1** – the strand direction of upstream fusion
      sequence.
-   | Column 11th: **strand2** – The strand direction of downstream
+   | Column 11th: **strand2** – the strand direction of downstream
      fusion sequence.
+   | Column 12th: **untemplated_insert** – the untemplated insert
+     sequence.
 
 Description of input format for DNA-seq SV calls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

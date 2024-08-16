@@ -9,27 +9,34 @@ with read alignments as well. Import of read alignment is allowed in
 Quality control of SVs via read alignment in Linear module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Upload RNA-seq alignment and index files together.
+1. Load annotation resource data of human genome **hg19** version, then
+   upload RNA-seq alignment and index files at the path
+   ``~/inst/extdata/RNA-seq-BRAF.bam`` and
+   ``~/inst/extdata/RNA-seq-BRAF.bam.bai`` of FuSViz package.
 
 |image1|
 
-2. Click the genomic coordinates of *ERICH1* and *UNC5D* breakpoints in
-   ``pos1`` and ``pos2`` columns of the overview table (e.g. *692478* or
-   *35549292* in tab panel ``SV from RNA-seq``)
+2. Import an example file of RNA SV calls at the path
+   ``~/inst/extdata/BRAF_demo.txt`` of FuSViz package. Click on the
+   index of the 6th row (i.e., *HNRNPDL-BRAF*) that links to the linear
+   view session, then genomic coordinates of *HNRNPDL* and *BRAF*
+   breakpoints are shown in two split windows.
 
 |image2|
 
-3. Inspect read alignment and search for supporting reads at the
-   breakpoints
+3. Inspect read alignment and search for supporting split reads at the
+   breakpoints.
 
 |image3|
 
 A **split-window** mode is used to investigate alignment quality of
-split reads mapped to ERICH1 and UNC5D genes (NOTE: please click the
+split reads mapped to *HNRNPDL* and *BRAF* genes (NOTE: please click the
 search box in the toolbar if a **split-window** mode does not show
 properly). Soft-clipped read sequences (black box) match exactly the
-fusion sequences at breakpoints of the partner genes UNC5D and ERICH1
-(black dash lines), respectively.
+fusion sequences at breakpoints of the partner genes *HNRNPDL* and
+*BRAF* (black dash lines), respectively. Sometimes, the genomic
+coordinates of breakpoints need an adjustment if the provisonal ones are
+inaccurate.
 
 Load alignment track from URL address in Linear module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,10 +48,10 @@ load it via URL web address. For example,
 
 |image5|
 
-A **split-window** mode is also used to evaluate alignment quality of
-discordant read pairs mapped to different genomic loci. A read pair
-highlighted in dash boxes shows a discordant mapping feature to partner
-genes ABHD12B and RCC1, respectively.
+A **split-window** mode is also able to evaluate alignment quality of
+discordant read pairs mapped to different genomic loci. For another
+example, a read pair highlighted in dash boxes shows a discordant
+mapping feature to partner genes *ABHD12B* and *RCC1*, respectively.
 
 Visualize SV event together with read coverage using Two-way module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

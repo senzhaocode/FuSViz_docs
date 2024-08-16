@@ -7,24 +7,23 @@ Frequently asked questions regarding to installation and usage of
 **1. How to prepare input format for FuSViz?**
 
 -  FuSViz accepts three types of data as input: SV calls from
-   RNA-seq/DNA-seq data generated using illumina platform and mutation
-   profile (i.e. small variants). Here, an in-house script
-   **SV_standard.pl** (see its usage in **Installation** section) is
-   provided to convert raw SVs from various callers to a uniform format,
-   then aggregate calls of multiple samples together. In terms of SVs
-   from RNA-seq data, numerous callers have been developed and there
-   lacks of a standardization format for the output. In the processing
-   of **SV_standard.pl**, a few common features (e.g. gene name,
-   breakpoint position, sample id, read support for SV event) shared in
-   the output of most callers are extracted and standardized as an input
-   format of FuSViz. In contrast, most SV callers uing DNA-seq data
-   output a standard VCF format, which is converted to bedpe format and
-   some key fields are kept for FuSViz analysis. Now, output format of
-   **9** SV callers (*STAR-fusion*, *Arriba*, *deFuse*, *FusionCatcher*
-   and *Dragen* for RNA-seq; *Menta*, *Lumpy*, *Delly* and *SvABA* for
-   DNA-seq) are well supported by **SV_standard.pl**, and we will of
-   course extend to more callers on basis of user’s requirement and
-   feedback in the further.
+   RNA-seq/DNA-seq data and mutation profile (i.e. small variants).
+   Here, an in-house script **SV_standard.pl** (see its usage in
+   **Installation** section) is provided to convert raw SVs from various
+   callers to a uniform format, then aggregate calls of multiple samples
+   together. In terms of SVs from RNA-seq data, many callers have been
+   developed and there lacks of a standardization format for the output.
+   In the processing of **SV_standard.pl**, a few common features
+   (e.g. gene name, breakpoint position, sample id, read support for SV
+   event) shared in the output of most callers are extracted and
+   standardized as an input format of FuSViz. In contrast, most SV
+   callers uing DNA-seq data output a standard VCF format, which is
+   converted to bedpe format and some key fields are kept for FuSViz
+   analysis. Now, output format of **9** SV callers (*STAR-fusion*,
+   *Arriba*, *deFuse*, *FusionCatcher* and *Dragen* for RNA-seq;
+   *Menta*, *Lumpy*, *Delly* and *SvABA* for DNA-seq) are well supported
+   by **SV_standard.pl**, and the support for more callers will be
+   extended on basis of user’s requirement and feedback in the further.
 
 **2. What are differences between SV calls from DNA-seq and RNA-seq, and
 their respective characteristics? Why to combine them?**
@@ -60,9 +59,14 @@ their respective characteristics? Why to combine them?**
 **3. Are SV calls from the third-generation sequencing technology
 (e.g. PacBio or Nanopore platform) supported by FuSViz.**
 
--  At this moment, **SV_standard.pl** does not support to handle SV
-   calls using reads generated from third-generation sequencing
-   technology.
+-  Although FuSViz is designed to visualize and interpret aggregated SVs
+   called from short read sequencing data (primarily the Illumina
+   platform), it can support SV calls from long read sequencing data
+   (e.g., Nanopore or PacBio technology) as well. In fact, most SV tools
+   using long read sequencing data output raw calls into a standard VCF
+   file with a similar format of SV calls as those from short read data.
+   Users only need to convert raw SV calls into a format compatible with
+   FuSViz (i.e., bedpe or bedpe-like format).
 
 **4. If I am only interested in copy number aberrations (CNAs), how
 could I make a filtration on SVs.**
@@ -91,8 +95,13 @@ sample and ‘tumor-normal’ pairwise samples?**
 **6. Is it possible for FuSViz to analyze SV calls from Non-human
 organisms?**
 
--  Not yet right now, but we are working on it and trying to extend
-   FuSViz to other model organisms (e.g. mouse and rat).
+-  FuSViz is a dedicated tool intended for interpretation of
+   genomic/transcriptomic structural variations (SVs) in the context of
+   human cancer, and hence has limited focus on serving datasets from
+   other organisms. But, we have extended its functionality to the model
+   organism mouse, given that mouse is frequently used to establish
+   patient-derived xenograft (PDX) models for experimental
+   investigations of molecularly targeted cancer therapies.
 
 **7. Do SV calls in FuSViz input file include genotype information?**
 
@@ -114,6 +123,6 @@ input?**
 -  Though the main purpose of FuSViz is used to visualize and interpret
    SVs of multiple samples, users can load read alignments in the
    ``file upload`` panel of **Linear module** or using **Two-way
-   module** (see **Appendix** - how to plot read coverage for a
-   customized analysis of one specific sample using alignment file,
-   either from RNA-seq or DNA-seq or both).
+   module** for single sample analysis (see **Appendix** - how to plot
+   read coverage for a customized analysis of one specific sample using
+   alignment file, either from RNA-seq/DNA-seq or both).

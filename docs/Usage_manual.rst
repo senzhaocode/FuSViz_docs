@@ -11,7 +11,7 @@ Running offline
 
 By default, the initiation of IGV browser in FuSViz **linear module**
 needs an online environment. However, with some additional
-configurations, it is possible to run FuSViz on an offline system. Users
+configurations, it is able to run FuSViz on an offline system. Users
 will need to manually upload pre-defined genome reference and index
 files, and cytoband annotation for launching the IGV session.
 
@@ -57,15 +57,17 @@ usage, see **Linear module** section below).
 FuSViz annotation resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Annotations of human genome version hg19 and hg38 are provided, and they
-include:
+Annotations of human genome version (hg19 and hg38) and mouse genome
+version (GRCm39) are provided, and they include:
 
 -  The gene, transcript and exon annotations (**ENSEMBL Release 104**
    gene annotation on reference chromosomes for
-   `hg38 <http://may2021.archive.ensembl.org/index.html>`__) and
-   (**ENSEMBL Release 87** gene annotation on reference chromosomes for
-   `hg19 <http://grch37.ensembl.org/index.html>`__). NOTE: scaffolds and
-   contigs are excluded in FuSViz analysis.
+   `hg38 <http://may2021.archive.ensembl.org/index.html>`__, **ENSEMBL
+   Release 87** gene annotation on reference chromosomes for
+   `hg19 <http://grch37.ensembl.org/index.html>`__, **ENSEMBL Release
+   111** gene annotation on reference chromosomes for
+   `GRCm39 <https://jan2024.archive.ensembl.org/Mus_musculus/Info/Index>`__).
+   NOTE: scaffolds and contigs are excluded in FuSViz analysis.
 -  `Chromosome cytobands from UCSC Genome
    Browser <http://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=cytoBand&hgta_table=cytoBand&hgta_doSchema=describe+table+schema>`__
 -  Gene symbol and synonymous names - the resource for approved human
@@ -125,10 +127,27 @@ For example, in ``SV from DNA-seq`` tab panel, genes involved in SVs are
 highlighted by **red**, **blue** and **orange** if they are
 *proto-oncogenes*, *tumor suppressor genes* and *cancer-related genes*.
 
+Table – save the updated table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+|image7|
+
+Users are allowed to edit and update the SV data in table view session
+(e.g., correct the breakpoint coordinates if the provisional one proves
+inaccurate and update gene symbol name if necessary).
+
+Table – edit and update data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+|image8|
+
+Users are able to output the updated and reviewed SV table into a text
+file, by clicking on the ‘Download Data’ button.
+
 Wordcloud – prevalence of SV-related genes across samples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image7|
+|image9|
 
 In ``SV relevant gene wordcloud`` tab panel, a pop-up window shows the
 frequency of SV partner genes in sample cohort (e.g. *TMPRSS2*: 52)
@@ -141,7 +160,7 @@ value are filtered out); shape of wordclould is customized via
 Histogram – SV distribution across samples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image8|
+|image10|
 
 In ``SV distribution across samples`` tab panel, histogram plots the
 number of SVs per sample, which is used to identify any hyper-SV
@@ -156,7 +175,7 @@ slider; position of sample name can be changed vertically via
 Correlation - small variant mutations and SVs burden
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image9|
+|image11|
 
 In ``Correlation of mutation and SV (DNA-seq) burden`` tab panel, the
 relationship between small variant and SV burden is plotted if mutation
@@ -167,7 +186,7 @@ profile is available. Mutation and SV burden of a selected sample
 Drug target association with cancer-related genes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image10|
+|image12|
 
 In ``Drug target info`` tab panel, genes involved in RNA-seq/DNA-seq SVs
 with an entry in `Open Targets
@@ -189,7 +208,7 @@ respectively.
 Whole genome SVs overview
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image11|
+|image13|
 
 Press button ``Plot / Refresh``. Circular tracks displayed from
 outermost to innermost are **Gene annotation**, **Cytoband annotation**
@@ -206,21 +225,21 @@ Demo SVs with customized settings
 Users could make a change on the settings of ``RNA_SV_panel`` or
 ``DNA_SV_panel`` for a customized analysis.
 
-|image12|
+|image14|
 
 Press button ``Plot / Refresh`` after selecting ``Gene`` *ERG*. SV
 events of *ERG* gene and the relevant chromosomes (e.g. chromosome 1, 4,
 8, 10, 18 and 21) are plotted. More customized investigations could be
 done by choosing in ``Chrom`` or ``Sample`` box.
 
-|image13|
+|image15|
 
 Another example - an overview of filtered SVs (intra-chromosome SVs with
 a distance > 9Mb are kept) in sample “TCGA-HC-A6AP”. NOTE: slider
 ``Dist intra-chrom`` is used for filtering out intra-chromosome SV
 events with a distance less than a given value.
 
-|image14|
+|image16|
 
 By changing the value of ``Num of samples`` slider, the most recurrent
 SVs (>35 samples) in the cohort of samples are displayed.
@@ -228,7 +247,7 @@ SVs (>35 samples) in the cohort of samples are displayed.
 Integrate SVs and mutation data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image15|
+|image17|
 
 Click check box ``Load mutation data`` (by default, mutation types with
 no-silent consequence are chosen in ``Mutation type``; leave it to be
@@ -252,7 +271,7 @@ Two options are available for zooming in: ``spinner of the mouse`` or
 ``double-click a targeted object``. For example, double-click a mutation
 dot (marked by arrow line) in the plot for zooming in:
 
-|image16|
+|image18|
 
 Download circular plot
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -280,7 +299,7 @@ and ``Mut`` panels.
 Load SVs in “bedpe” format (available for DNA-seq and RNA-seq SVs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image17|
+|image19|
 
 Press ``Load DNA SV track in bedpe`` button, intra-chromosome SVs are
 denoted as curves that link breakpoint sites. After clicking a curve, a
@@ -303,7 +322,7 @@ via configuration panel (e.g. ``Set track height``).
 Load SVs in “segment” format (only available for DNA-seq SVs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image18|
+|image20|
 
 Press ``Load DNA SV track in seg`` button, two types of SVs
 (i.e. **duplication** and **deletion**) representing copy number
@@ -323,19 +342,19 @@ in ``Sample Height`` setting). Users can adjust the size of track via
 ``Set track height`` setting or choose ``Squish`` option in
 ``Sample Height`` setting to display all samples. An example below,
 
-|image19|
+|image21|
 
 If users are interested in CNAs overlapping/within a target region, a
 subset of **duplication** and **deletion** are displayed by the setting
 of ``Chrom``, ``Start`` and ``End`` options
 (e.g. “chr21:38990663-40450349”) in ``SV_DNA`` panel.
 
-|image20|
+|image22|
 
 Load SVs in “bed” and “bedgraph” format (available for DNA-seq and RNA-seq SVs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image21|
+|image23|
 
 Press ``Load DNA SV breakpoints`` (or ``Load RNA SV breakpoints``)
 button, SV breakpoint tracks in bed (upper – colored by **green**) and
@@ -364,7 +383,7 @@ breakpoint hotspot regions (see breakpoint hotspots highlighted in
 dashline boxes, which links a recurrent inversion between
 ``chrX:2197061-2197064`` and ``chrX:48672810-48672813``).
 
-|image22|
+|image24|
 
 Upload user-defined annotation files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -387,9 +406,9 @@ file:
 For example, upload a gene annotation file in GTF format from GENCODE
 v35 and compare it with the default annotation track (NCBI RefSeq).
 
-|image23|
+|image25|
 
-|image24|
+|image26|
 
 In addition, read alignment files (e.g. **BAM** or **CRAM** format) can
 be uploaded for a single sample analysis (see **Appendix** section for
@@ -400,7 +419,7 @@ Display genomic coordinate of current window
 
 Press ``Show coordinate`` button
 
-|image25|
+|image27|
 
 Save and download tracks
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -408,7 +427,7 @@ Save and download tracks
 IGV browser provides a button ``Save SVG`` to download loaded tracks as
 SVG format.
 
-|image26|
+|image28|
 
 Illustrate SV pattern by combining multiple tracks together
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -422,7 +441,7 @@ SV in bedpe format and user-defined bed file (enhancers_sort.bed.gz).
 Dashline box highlights a highly recurrent duplication of an upstream
 enhancer *GHXI66900* of *AR* gene in a sample cohort.
 
-|image27|
+|image29|
 
 Example 2: a comparison of breakpoint distribution at DNA and RNA level
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -438,7 +457,7 @@ aligned to exon boundary, simplifying the complexity of SVs in the
 RNA-seq data. As expected in bedpe track, fusion events of *TMPRSS2-ERG*
 detected in RNA-seq data link the splicing sites of two partner genes.
 
-|image28|
+|image30|
 
 Two-way module (RNA-seq)
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -463,7 +482,7 @@ by **green**) and downstream (colored by **orange**) partners, genomic
 coordinates of partner gene loci in Mb from chromosome, partner gene
 position in a chromosome ideogram.
 
-|image29|
+|image31|
 
 Show fusion events of chosen breakpoints in Select boxes
 ``Breakpoint A`` and ``Breakpoint B``. For example, breakpoint
@@ -471,7 +490,7 @@ Show fusion events of chosen breakpoints in Select boxes
 frequency (``3``, ``42`` and ``17``) are plotted on the top of two-way
 plot view (highlighted in dashline box).
 
-|image30|
+|image32|
 
 Show annotations of chosen transcripts in Select boxes
 ``GeneA transcript`` (``ENST00000679263`` and ``ENST00000679054``) and
@@ -479,17 +498,19 @@ Show annotations of chosen transcripts in Select boxes
 filter out the fusion event with the number of split reads less than 8
 (see the setting of ``Num of split reads`` slider).
 
-|image31|
+|image33|
 
 By clicking check box ``Ruler line:``, users could add a vertical
 baseline to the session in context of ‘exon-intron’ structure for
 different transcript isoforms.
 
-|image32|
+|image34|
 
-Zoom in/out and download plot
+Zoom in/out and download plot, and users are able to adjust the
+resolution of download plot via changing ``Layout_width`` and
+``Layout_height``.
 
-|image33|
+|image35|
 
 Sample_plot (only available for RNA-seq SVs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -505,7 +526,7 @@ isoforms for upstream (colored by **green**) and downstream (colored by
 **orange**) partners in which fused parts are highlighted by grey box,
 and genomic coordinates of partner gene loci in Mb from chromosome.
 
-|image34|
+|image36|
 
 As a breakpoint may have a variable consequence (e.g. ‘at exon
 boundary’, ‘within exon’ or ‘within intron’) in terms of different
@@ -514,7 +535,7 @@ Select boxes ``GeneA`` and ``GeneB transcript``
 (e.g. ``ENST00000679054`` and ``ENST00000417133``) to demonstrate the
 outcome of fusion event.
 
-|image35|
+|image37|
 
 For plotting read coverage using alignment file in a single sample
 analysis, see **Appendix** section.
@@ -526,10 +547,11 @@ Domain plot shows a biological consequence of chimeric transcript in
 context of protein domain and motif annotations. For example, after
 choosing partner genes (*TMPRSS2* and *ERG*) in Select boxes ``GeneA``
 and ``GeneB``, transcript isoforms with domain and motif annotations are
-bold in Select boxes ``TranscriptA`` and ``TranscriptB``. Choose
-relevant ones, then press ``Activate`` button.
+bold and the canonical transcript isoform is highlighted by underscore
+in Select boxes ``TranscriptA`` and ``TranscriptB``. Choose relevant
+ones, then domain fusion plot is rendered.
 
-|image36|
+|image38|
 
 In plot view panel, motif & domain annotations and the selected
 transcripts with concatenated exons for GeneA (colored by **green**) and
@@ -539,10 +561,12 @@ consequence of translated chimeric transcripts (i.e. ``red: outframe``,
 ``blue: inframe`` and ``black: unknown``).
 
 Show biological consequence of a specific chimeric transcript with the
-selected breakpoints (e.g. ``41498119`` and ``38423561`` are chosen in
-Select box ``Breakpoint A`` and ``Breakpoint B``, see below).
+selected breakpoints (e.g. ``41498119`` and ``38445621`` are chosen in
+Select box ``Breakpoint A`` and ``Breakpoint B``, see below). Users
+could adjust the resolution of download domain fusion plot via changing
+``Layout_width`` and ``Layout_height``.
 
-|image37|
+|image39|
 
 Network module
 ~~~~~~~~~~~~~~
@@ -562,7 +586,7 @@ DNA_SV_network_plot
 Press ``Plot / Refresh`` button in ``DNA_SV_panel`` settings. An
 overview of DNA SV interaction network is plotted.
 
-|image38|
+|image40|
 
 Choose a gene name (e.g. *TP53*) in Select box ``Node search`` of
 ``DNA_SV_panel``, and *TP53* is centralized by its connected nodes. The
@@ -575,7 +599,7 @@ tumor suppressor feature and a high degree of connection, an outcome of
 SVs involving *TP53* most likely results in a loss of function by
 disrupting the gene.
 
-|image39|
+|image41|
 
 The gene name pops up after clicking a node in the network plot. User
 could adjust font size and position of gene name using Numeric Input box
@@ -596,7 +620,7 @@ samples (see a pop-up window). As all the four hubs have **oncogenic**
 features, and it is interesting to see whether such a interative network
 can be recurrent at RNA level.
 
-|image40|
+|image42|
 
 RNA_SV_network_plot
 ^^^^^^^^^^^^^^^^^^^
@@ -608,7 +632,7 @@ events observed at RNA level are transcribed as fusion transcripts, an
 arrow indicates the transcription direction from upstream to downstream
 partner.
 
-|image41|
+|image43|
 
 Choose *ERG* in Select box ``Node search`` of ``RNA_SV_panel``, and the
 sub-network with centralized *ERG* is highlighted. A similar subgraph
@@ -619,7 +643,7 @@ partners (*ERG* and *ETV1*), which might result in an increase of *ERG*
 and *ETV1* expression due to a “hitchhiking effect” of overexpressed
 *TMPRSS2* and *SLC45A3*.
 
-|image42|
+|image44|
 
 DNA_SV_network_hub and RNA_SV_network_hub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -632,7 +656,7 @@ edges linking to a node and the number of samples involving SV events
 for a node. By ranking table via ``degree`` and ``score``, users could
 identify the hub with a high complexity.
 
-|image43|
+|image45|
 
 Download
 ^^^^^^^^
@@ -641,7 +665,7 @@ The network is saved as png format by pressing ``Export as png`` button.
 In order to download a full view of plot, ``Display Navigation`` could
 be clicked out .
 
-|image44|
+|image46|
 
 .. |image1| image:: 4.1.Data_Load_interface.png
 .. |image2| image:: 4.1.1.Offline_1.png
@@ -649,41 +673,43 @@ be clicked out .
 .. |image4| image:: 4.1.1.Offline_3.png
 .. |image5| image:: 4.1.1.Offline_4.png
 .. |image6| image:: 4.2.1.Table.png
-.. |image7| image:: 4.2.2.Wordcloud.png
-.. |image8| image:: 4.2.3.Histogram.png
-.. |image9| image:: 4.2.4.Correlation.png
-.. |image10| image:: 4.2.5.Drug_info.png
-.. |image11| image:: 4.3.1.Whole_genome_SV_overview_new.png
-.. |image12| image:: 4.3.2.Demo_SVs_related_to_selected_genes.png
-.. |image13| image:: 4.3.2.Demo_SVs_related_to_selected_sample.png
-.. |image14| image:: 4.3.2.Demo_SVs_with_recurrence.png
-.. |image15| image:: 4.3.3.Integrate_SVs_and_mutation_data.png
-.. |image16| image:: 4.3.4.Zoom_in_by_double_click.png
-.. |image17| image:: 4.4.1.Load_SVs_in_bedpe_format.png
-.. |image18| image:: 4.4.2.Load_SVs_in_segment_format.png
-.. |image19| image:: 4.4.2.Load_SVs_in_segment_format_squish.png
-.. |image20| image:: 4.4.2.Load_SVs_in_segment_format_subset.png
-.. |image21| image:: 4.4.3.Load_SVs_in_bed_and_bedgraph_format.png
-.. |image22| image:: 4.4.3.Load_SVs_in_bed_and_bedgraph_format_hotspot.png
-.. |image23| image:: 4.4.4.Upload_user_defined_annotation_files_1.png
-.. |image24| image:: 4.4.4.Upload_user_defined_annotation_files_2.png
-.. |image25| image:: 4.4.5.Display_genomic_coordinate_of_current_window.png
-.. |image26| image:: 4.4.6.Save_and_download.png
-.. |image27| image:: 4.4.7.Combine_different_tracks_together_example1.png
-.. |image28| image:: 4.4.7.Combine_different_tracks_together_example2.png
-.. |image29| image:: 4.5.1.Overview_plot_1.png
-.. |image30| image:: 4.5.1.Overview_plot_2.png
-.. |image31| image:: 4.5.1.Overview_plot_3.png
-.. |image32| image:: 4.5.1.Overview_plot_5.png
-.. |image33| image:: 4.5.1.Overview_plot_4.png
-.. |image34| image:: 4.5.2.Per_sample_plot_1.png
-.. |image35| image:: 4.5.2.Per_sample_plot_2.png
-.. |image36| image:: 4.5.3.Domain_plot_1.png
-.. |image37| image:: 4.5.3.Domain_plot_2.png
-.. |image38| image:: 4.6.1.DNA_network_plot_1.png
-.. |image39| image:: 4.6.1.DNA_network_plot_2.png
-.. |image40| image:: 4.6.1.DNA_network_plot_3.png
-.. |image41| image:: 4.6.2.RNA_network_plot_1.png
-.. |image42| image:: 4.6.2.RNA_network_plot_2.png
-.. |image43| image:: 4.6.3.DNA_RNA_network_hub.png
-.. |image44| image:: 4.6.4.Download_network.png
+.. |image7| image:: 4.2.1.1.Table_update.png
+.. |image8| image:: 4.2.1.2.Table_save.png
+.. |image9| image:: 4.2.2.Wordcloud.png
+.. |image10| image:: 4.2.3.Histogram.png
+.. |image11| image:: 4.2.4.Correlation.png
+.. |image12| image:: 4.2.5.Drug_info.png
+.. |image13| image:: 4.3.1.Whole_genome_SV_overview_new.png
+.. |image14| image:: 4.3.2.Demo_SVs_related_to_selected_genes.png
+.. |image15| image:: 4.3.2.Demo_SVs_related_to_selected_sample.png
+.. |image16| image:: 4.3.2.Demo_SVs_with_recurrence.png
+.. |image17| image:: 4.3.3.Integrate_SVs_and_mutation_data.png
+.. |image18| image:: 4.3.4.Zoom_in_by_double_click.png
+.. |image19| image:: 4.4.1.Load_SVs_in_bedpe_format.png
+.. |image20| image:: 4.4.2.Load_SVs_in_segment_format.png
+.. |image21| image:: 4.4.2.Load_SVs_in_segment_format_squish.png
+.. |image22| image:: 4.4.2.Load_SVs_in_segment_format_subset.png
+.. |image23| image:: 4.4.3.Load_SVs_in_bed_and_bedgraph_format.png
+.. |image24| image:: 4.4.3.Load_SVs_in_bed_and_bedgraph_format_hotspot.png
+.. |image25| image:: 4.4.4.Upload_user_defined_annotation_files_1.png
+.. |image26| image:: 4.4.4.Upload_user_defined_annotation_files_2.png
+.. |image27| image:: 4.4.5.Display_genomic_coordinate_of_current_window.png
+.. |image28| image:: 4.4.6.Save_and_download.png
+.. |image29| image:: 4.4.7.Combine_different_tracks_together_example1.png
+.. |image30| image:: 4.4.7.Combine_different_tracks_together_example2.png
+.. |image31| image:: 4.5.1.Overview_plot_1.png
+.. |image32| image:: 4.5.1.Overview_plot_2.png
+.. |image33| image:: 4.5.1.Overview_plot_3.png
+.. |image34| image:: 4.5.1.Overview_plot_5.png
+.. |image35| image:: 4.5.1.Overview_plot_4.png
+.. |image36| image:: 4.5.2.Per_sample_plot_1.png
+.. |image37| image:: 4.5.2.Per_sample_plot_2.png
+.. |image38| image:: 4.5.3.Domain_plot_1.png
+.. |image39| image:: 4.5.3.Domain_plot_2.png
+.. |image40| image:: 4.6.1.DNA_network_plot_1.png
+.. |image41| image:: 4.6.1.DNA_network_plot_2.png
+.. |image42| image:: 4.6.1.DNA_network_plot_3.png
+.. |image43| image:: 4.6.2.RNA_network_plot_1.png
+.. |image44| image:: 4.6.2.RNA_network_plot_2.png
+.. |image45| image:: 4.6.3.DNA_RNA_network_hub.png
+.. |image46| image:: 4.6.4.Download_network.png

@@ -168,3 +168,91 @@ v1.4.0 - Jun 10th 2023
         [113] memoise_2.0.1               htmltools_0.5.7            
         [115] lifecycle_1.0.4             httr_1.4.7                 
         [117] bit64_4.0.5    
+
+v1.7.0 - Aug 15th 2023
+^^^^^^^^^^^^^^^^^^^^^^
+
+-  Dependencies of FuSViz, R session info ``sessionInfo()``:
+
+   ::
+
+        R version 4.3.0 (2023-04-21)
+        Platform: aarch64-apple-darwin20 (64-bit)
+        Running under: macOS Ventura 14.5
+
+        Matrix products: default
+        BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+        LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+        locale:
+        [1] C/UTF-8/C/C/C/C
+
+        time zone: Europe/Oslo
+        tzcode source: internal
+
+        attached base packages:
+        [1] grid      stats     graphics  grDevices utils     datasets  methods base     
+
+        other attached packages:
+        [1] FuSViz_1.7.0
+
+        loaded via a namespace (and not attached):
+        [1] DBI_1.2.2                   bitops_1.0-7               
+        [3] deldir_2.0-4                gridExtra_2.3              
+        [5] biomaRt_2.58.2              rlang_1.1.3                
+        [7] magrittr_2.0.3              biovizBase_1.50.0          
+        [9] matrixStats_1.3.0           compiler_4.3.0             
+        [11] RSQLite_2.3.6               GenomicFeatures_1.54.4     
+        [13] png_0.1-8                   vctrs_0.6.5                
+        [15] ProtGenerics_1.34.0         stringr_1.5.1              
+        [17] pkgconfig_2.0.3             crayon_1.5.2               
+        [19] fastmap_1.1.1               backports_1.4.1            
+        [21] dbplyr_2.5.0                XVector_0.42.0             
+        [23] utf8_1.2.4                  Rsamtools_2.18.0           
+        [25] rmarkdown_2.26              bit_4.0.5                  
+        [27] xfun_0.43                   zlibbioc_1.48.2            
+        [29] cachem_1.0.8                GenomeInfoDb_1.38.8        
+        [31] jsonlite_1.8.8              progress_1.2.3             
+        [33] blob_1.2.4                  DelayedArray_0.28.0        
+        [35] BiocParallel_1.36.0         jpeg_0.1-10                
+        [37] parallel_4.3.0              prettyunits_1.2.0          
+        [39] cluster_2.1.6               VariantAnnotation_1.48.1   
+        [41] R6_2.5.1                    stringi_1.8.3              
+        [43] RColorBrewer_1.1-3          rtracklayer_1.62.0         
+        [45] rpart_4.1.23                Gviz_1.46.1                
+        [47] GenomicRanges_1.54.1        Rcpp_1.0.12                
+        [49] SummarizedExperiment_1.32.0 knitr_1.45                 
+        [51] base64enc_0.1-3             IRanges_2.36.0             
+        [53] Matrix_1.6-5                nnet_7.3-19                
+        [55] tidyselect_1.2.1            dichromat_2.0-0.1          
+        [57] rstudioapi_0.16.0           abind_1.4-5                
+        [59] yaml_2.3.8                  codetools_0.2-20           
+        [61] curl_5.2.1                  lattice_0.22-6             
+        [63] tibble_3.2.1                Biobase_2.62.0             
+        [65] KEGGREST_1.42.0             evaluate_0.23              
+        [67] foreign_0.8-86              BiocFileCache_2.10.2       
+        [69] xml2_1.3.6                  Biostrings_2.70.3          
+        [71] pillar_1.9.0                filelock_1.0.3             
+        [73] MatrixGenerics_1.14.0       checkmate_2.3.1            
+        [75] stats4_4.3.0                generics_0.1.3             
+        [77] RCurl_1.98-1.14             ensembldb_2.26.0           
+        [79] S4Vectors_0.40.2            hms_1.1.3                  
+        [81] ggplot2_3.5.0               munsell_0.5.1              
+        [83] scales_1.3.0                glue_1.7.0                 
+        [85] lazyeval_0.2.2              Hmisc_5.1-2                
+        [87] tools_4.3.0                 interp_1.1-6               
+        [89] BiocIO_1.12.0               data.table_1.15.4          
+        [91] BSgenome_1.70.2             GenomicAlignments_1.38.2   
+        [93] XML_3.99-0.16.1             latticeExtra_0.6-30        
+        [95] AnnotationDbi_1.64.1        colorspace_2.1-0           
+        [97] GenomeInfoDbData_1.2.11     htmlTable_2.4.2            
+        [99] restfulr_0.0.15             Formula_1.2-5              
+        [101] cli_3.6.2                   rappdirs_0.3.3             
+        [103] fansi_1.0.6                 S4Arrays_1.2.1             
+        [105] dplyr_1.1.4                 AnnotationFilter_1.26.0    
+        [107] gtable_0.3.4                digest_0.6.35              
+        [109] BiocGenerics_0.48.1         SparseArray_1.2.4          
+        [111] rjson_0.2.21                htmlwidgets_1.6.4          
+        [113] memoise_2.0.1               htmltools_0.5.8.1            
+        [115] lifecycle_1.0.4             httr_1.4.7                 
+        [117] bit64_4.0.5

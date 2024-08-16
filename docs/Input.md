@@ -21,8 +21,9 @@ To run FuSViz, it needs SV calls from either one or both of DNA-seq and RNA-seq.
 > Column 7th: **name** - sample/patient/case ID.  
 > Column 8th: **split** - the number of support reads across the breakpoint of SV.  
 > Column 9th: **span** - the number of discordant read pairs supporting the SV.  
-> Column 10th: **strand1** – The strand direction of upstream fusion sequence.  
-> Column 11th: **strand2** – The strand direction of downstream fusion sequence.  
+> Column 10th: **strand1** – the strand direction of upstream fusion sequence.  
+> Column 11th: **strand2** – the strand direction of downstream fusion sequence.  
+> Column 12th: **untemplated_insert** – the untemplated insert sequence.  
 
 #### Description of input format for DNA-seq SV calls
 
@@ -81,14 +82,14 @@ Run an example:
 /where_is_path/SV_standard/DNA/input
 |
 |_____ T001 (sample name)
-|		|____ Manta.vcf.gz (rename *Manta* output VCF file to 'Manta.vcf.gz').
-|		|____ Svaba.vcf (rename *Svaba* output VCF file to 'Svaba.vcf' after SVTYPE re-classification using 'SV_standard/script/svaba_svtype.R').
+|		|____ Manta.vcf.gz (rename Manta output VCF file to 'Manta.vcf.gz').
+|		|____ Svaba.vcf (rename Svaba output VCF file to 'Svaba.vcf' after SVTYPE re-classification using 'SV_standard/script/svaba_svtype.R').
 |
 |_____ T002 (sample name)
-|		|____ Delly.vcf (rename *Delly* output VCF file to 'Delly.vcf').
+|		|____ Delly.vcf (rename Delly output VCF file to 'Delly.vcf').
 |
 |_____ T003 (sample name)
-		|____ Lumpy.vcf (rename *Lumpy* output VCF file that is genotyed by *SVTyper* tool to 'Lumpy.vcf').
+		|____ Lumpy.vcf (rename Lumpy output VCF file that is genotyed by *SVTyper* tool to 'Lumpy.vcf').
 ```
 
 * **SV_standard.pl** supports a merging of DNA SVs from four callers currently. As VCF output fields of callers with different versions may be somewhat variable, we recommend users run SV calls using the following version: *Manta* (>= v1.6.0), *svaba* (>= 1.1.0), *Delly* (>= v0.8.7) and *lumpy* (>= v0.3.1). VCF file in compressed format (i.e. vcf.gz) is acceptable.
@@ -116,12 +117,12 @@ Run an example:
 input_rna_dir
 |
 |_____ T001 (sample name)
-|		|____ Arriba.tsv (rename *Arriba* output file 'fusion.tsv' to 'Arriba.tsv').
-|		|____ STAR-fusion.tsv (rename *STAR-fusion* output file 'star-fusion.fusion_predictions_loose.tsv' to 'STAR-fusion.tsv').
+|		|____ Arriba.tsv (rename Arriba output file 'fusion.tsv' to 'Arriba.tsv').
+|		|____ STAR-fusion.tsv (rename STAR-fusion output file 'star-fusion.fusion_predictions_loose.tsv' to 'STAR-fusion.tsv').
 |
 |_____ T002 (sample name)
-		|____ Dragen.txt (rename *Dragen* output file 'XXX.fusion_candidates.final' to 'Dragen.txt').
-		|____ Fusioncatcher.txt (rename *Fusioncatcher* output file 'final-list_candidate-fusion-genes.txt' to 'Fusioncatcher.txt').
+		|____ Dragen.txt (rename Dragen output file 'XXX.fusion_candidates.final' to 'Dragen.txt').
+		|____ Fusioncatcher.txt (rename Fusioncatcher output file 'final-list_candidate-fusion-genes.txt' to 'Fusioncatcher.txt').
 ```
 
 * **SV_standard.pl** supports a merging of RNA SVs from five callers currently. As output format of callers with differen versions may be somewhat variable, we recommend users run SV calls using the following version: *deFuse* (>= v0.8.1), *fusioncatcher* (>= v1.2.0), *arriba* (>= v2.0.0), *STAR-Fusion* (>= v1.9.1) and *Dragen* (>= v3.9.3).

@@ -6,7 +6,7 @@
 
 #### Running offline
 
-By default, the initiation of IGV browser in FuSViz **linear module** needs an online environment. However, with some additional configurations, it is possible to run FuSViz on an offline system. Users will need to manually upload pre-defined genome reference and index files, and cytoband annotation for launching the IGV session.
+By default, the initiation of IGV browser in FuSViz **linear module** needs an online environment. However, with some additional configurations, it is able to run FuSViz on an offline system. Users will need to manually upload pre-defined genome reference and index files, and cytoband annotation for launching the IGV session.
 
 * For human genome version hg19: 
 	* *hg19.fasta* - https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta
@@ -35,9 +35,9 @@ Now, the offline IGV browser session is launched successfully (for the usage, se
 
 #### FuSViz annotation resources
 
-Annotations of human genome version hg19 and hg38 are provided, and they include:
+Annotations of human genome version (hg19 and hg38) and mouse genome version (GRCm39) are provided, and they include:
 
-* The gene, transcript and exon annotations (**ENSEMBL Release 104** gene annotation on reference chromosomes for [hg38](http://may2021.archive.ensembl.org/index.html)) and (**ENSEMBL Release 87** gene annotation on reference chromosomes for [hg19](http://grch37.ensembl.org/index.html)). NOTE: scaffolds and contigs are excluded in FuSViz analysis.
+* The gene, transcript and exon annotations (**ENSEMBL Release 104** gene annotation on reference chromosomes for [hg38](http://may2021.archive.ensembl.org/index.html), **ENSEMBL Release 87** gene annotation on reference chromosomes for [hg19](http://grch37.ensembl.org/index.html), **ENSEMBL Release 111** gene annotation on reference chromosomes for [GRCm39](https://jan2024.archive.ensembl.org/Mus_musculus/Info/Index)). NOTE: scaffolds and contigs are excluded in FuSViz analysis.
 * [Chromosome cytobands from UCSC Genome Browser](http://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=cytoBand&hgta_table=cytoBand&hgta_doSchema=describe+table+schema)
 * Gene symbol and synonymous names - the resource for approved human gene nomenclature [HGNC](https://www.genenames.org/download/statistics-and-files/) were downloaded using ENSEMBL [BioMart API service](http://may2021.archive.ensembl.org/biomart/martview/7785a5b8efc47c501607d147bae28b59)
 * Protein domains and motifs are from [InterPro](https://www.ebi.ac.uk/interpro/download/) database v86. NOTE: InterPro integrates signatures of several databases (e.g. CDD, Pfam, SMART, Prosite and MobiDB). In terms of different sources, domain length, structure and name may be incongruous. Domains with overlapping intervals are merged and the most common name represents its entry.
@@ -60,6 +60,18 @@ Import RNA and DNA SV calls and mutation profile are demonstrated in tab panels 
 ![](4.2.1.Table.png)
 
 For example, in `SV from DNA-seq` tab panel, genes involved in SVs are highlighted by **red**, **blue** and **orange** if they are *proto-oncogenes*, *tumor suppressor genes* and *cancer-related genes*.
+
+#### Table – save the updated table
+
+![](4.2.1.1.Table_update.png)
+
+Users are allowed to edit and update the SV data in table view session (e.g., correct the breakpoint coordinates if the provisional one proves inaccurate and update gene symbol name if necessary).
+
+#### Table – edit and update data
+
+![](4.2.1.2.Table_save.png)
+
+Users are able to output the updated and reviewed SV table into a text file, by clicking on the ‘Download Data’ button.
 
 #### Wordcloud – prevalence of SV-related genes across samples
 
@@ -256,7 +268,7 @@ By clicking check box `Ruler line:`, users could add a vertical baseline to the 
 
 ![](4.5.1.Overview_plot_5.png)
 
-Zoom in/out and download plot
+Zoom in/out and download plot, and users are able to adjust the resolution of download plot via changing `Layout_width` and `Layout_height`.
 
 ![](4.5.1.Overview_plot_4.png)
 
@@ -274,13 +286,13 @@ For plotting read coverage using alignment file in a single sample analysis, see
 
 #### Domain_plot (only available for RNA-seq SVs)
 
-Domain plot shows a biological consequence of chimeric transcript in context of protein domain and motif annotations. For example, after choosing partner genes (*TMPRSS2* and *ERG*) in Select boxes `GeneA` and `GeneB`, transcript isoforms with domain and motif annotations are bold in Select boxes `TranscriptA` and `TranscriptB`. Choose relevant ones, then press `Activate` button.
+Domain plot shows a biological consequence of chimeric transcript in context of protein domain and motif annotations. For example, after choosing partner genes (*TMPRSS2* and *ERG*) in Select boxes `GeneA` and `GeneB`, transcript isoforms with domain and motif annotations are bold and the canonical transcript isoform is highlighted by underscore in Select boxes `TranscriptA` and `TranscriptB`. Choose relevant ones, then domain fusion plot is rendered.
 
 ![](4.5.3.Domain_plot_1.png)
 
 In plot view panel, motif & domain annotations and the selected transcripts with concatenated exons for GeneA (colored by **green**) and GeneB (colored by **orange**) are shown in upper and lower parts of the layout, respectively. Colored arrow lines denote different biological consequence of translated chimeric transcripts (i.e. `red: outframe`, `blue: inframe` and `black: unknown`).
 
-Show biological consequence of a specific chimeric transcript with the selected breakpoints (e.g. `41498119` and `38423561` are chosen in Select box `Breakpoint A` and `Breakpoint B`, see below).
+Show biological consequence of a specific chimeric transcript with the selected breakpoints (e.g. `41498119` and `38445621` are chosen in Select box `Breakpoint A` and `Breakpoint B`, see below). Users could adjust the resolution of download domain fusion plot via changing `Layout_width` and `Layout_height`.
 
 ![](4.5.3.Domain_plot_2.png)
 

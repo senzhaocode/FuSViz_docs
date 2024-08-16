@@ -1,6 +1,6 @@
 ## Installation
 
-### Deploy with docker
+### Deploy with docker/podman
 
 #### Install Docker engine in your OS platform
 
@@ -10,13 +10,13 @@
 
 #### Pull pre-built FuSViz image (release version) from docker hub
 
-Run `docker pull senzhao/fusviz_shiny_app:1.4.0`, then check the image by typing `docker images`
+Run `docker pull senzhao/fusviz_shiny_app:1.7.0`, then check the image by typing `docker images`
 
 Optional: if user would like to build image (developmental version), download soruce code and change to directory `cd ~/FuSViz-master`; run `docker build --rm -t senzhao/fusviz_shiny_app:latest -f Dockerfile .`.
 
 #### Launch FuSViz app
 
-Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.4.0`; then open web browser and input address `127.0.0.1:4000`
+Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.7.0`; then open web browser and input address `127.0.0.1:4000`
 
 **NOTE**: the following browsers have been tested and are supported well
 
@@ -25,7 +25,13 @@ Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.4.0`; then open web
 + Google Chrome (version >= 87.0.4280.67 official build x86_64)
 + Microsoft Edge (version >= 90)
 
-### Deploy without docker
+### Deploy without singularity/apptainer
+
+A singularity container of FuSViz is available for [dowload](https://fusviz.s3.eu-north-1.amazonaws.com/fusviz_v1.7.0.sif), and we recommend run it using singularity version (>= 3.7.3):
+
+`singularity run fusviz_v1.7.0.sif 4000`, then open web browser and input address.
+
+### Deploy without container
 
 #### Prerequisite
 
