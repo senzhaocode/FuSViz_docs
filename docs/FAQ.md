@@ -18,7 +18,7 @@ __3. Are SV calls from the third-generation sequencing technology (e.g. PacBio o
 
 __4. If I am only interested in copy number aberrations (CNAs), how could I make a filtration on SVs.__
 
-- In general, CNAs show unusual amplifications and deletions of genomic regions in a chromosome. They represent intra-chromosome events and are in fact a subset of total SVs, which are tagged as **DUP** and **DEL** in the input format of FuSViz. Such an analysis is provided by clicking the button `DNA SV Track in seg` in Linear plot module. In addition, it can be done by using `SV_type` Select DropDown to control the type of SVs for a customized analysis.
+- In general, CNAs show unusual amplifications and deletions of genomic regions in a chromosome. They represent intra-chromosome events and are in fact a subset of total SVs, which are tagged as **DUP** and **DEL** in the input format of FuSViz. Such an analysis is provided by clicking the button `Load and refresh DNA SV Track in seg` in Linear plot module. In addition, it can be done by using `SV_type` Select DropDown to control the type of SVs for a customized analysis.
 
 __5. Can it be possible to utilize FuSViz for analysis of a single sample and ‘tumor-normal’ pairwise samples?__
 

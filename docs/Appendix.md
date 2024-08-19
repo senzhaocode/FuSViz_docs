@@ -16,7 +16,7 @@ Although FuSViz is designed for interpretation and visualization of SVs in sampl
 
 ![](6.1.Load_local_alignment_track_in_Linear_module_3.png)
 
-A **split-window** mode is used to investigate alignment quality of split reads mapped to *HNRNPDL* and *BRAF* genes (NOTE: please click the search box in the toolbar if a **split-window** mode does not show properly). Soft-clipped read sequences (black box) match exactly the fusion sequences at breakpoints of the partner genes *HNRNPDL* and *BRAF* (black dash lines), respectively. Sometimes, the genomic coordinates of breakpoints need an adjustment if the provisonal ones are inaccurate.
+A **split-window** mode is used to investigate alignment quality of split reads mapped to *HNRNPDL* and *BRAF* genes (NOTE: please click on the search box in the toolbar if a **split-window** mode does not show properly). Soft-clipped read sequences (black box) match exactly the fusion sequences at breakpoints of the partner genes *HNRNPDL* and *BRAF* (black dash lines), respectively. Sometimes, the genomic coordinates of breakpoints need an adjustment if the provisonal ones are inaccurate.
 
 ### Load alignment track from URL address in Linear module
 

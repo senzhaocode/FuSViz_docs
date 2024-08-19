@@ -75,9 +75,9 @@ could I make a filtration on SVs.**
    regions in a chromosome. They represent intra-chromosome events and
    are in fact a subset of total SVs, which are tagged as **DUP** and
    **DEL** in the input format of FuSViz. Such an analysis is provided
-   by clicking the button ``DNA SV Track in seg`` in Linear plot module.
-   In addition, it can be done by using ``SV_type`` Select DropDown to
-   control the type of SVs for a customized analysis.
+   by clicking the button ``Load and refresh DNA SV Track in seg`` in
+   Linear plot module. In addition, it can be done by using ``SV_type``
+   Select DropDown to control the type of SVs for a customized analysis.
 
 **5. Can it be possible to utilize FuSViz for analysis of a single
 sample and ‘tumor-normal’ pairwise samples?**

@@ -142,7 +142,7 @@ Table – edit and update data
 |image8|
 
 Users are able to output the updated and reviewed SV table into a text
-file, by clicking on the ‘Download Data’ button.
+file, by clicking on the ``Download Data`` button.
 
 Wordcloud – prevalence of SV-related genes across samples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -301,9 +301,10 @@ Load SVs in “bedpe” format (available for DNA-seq and RNA-seq SVs)
 
 |image19|
 
-Press ``Load DNA SV track in bedpe`` button, intra-chromosome SVs are
-denoted as curves that link breakpoint sites. After clicking a curve, a
-window pops up with a feature description of the selected SV, e.g. 
+Press ``Load and refresh DNA SV track in bedpe`` button,
+intra-chromosome SVs are denoted as curves that link breakpoint sites.
+After clicking a curve, a window pops up with a feature description of
+the selected SV, e.g. 
 
 -  ``Region1: chr17 19901107-19901107`` - breakpoint site/interval of
    first end of SV
@@ -324,7 +325,7 @@ Load SVs in “segment” format (only available for DNA-seq SVs)
 
 |image20|
 
-Press ``Load DNA SV track in seg`` button, two types of SVs
+Press ``Load and refresh in seg`` button, two types of SVs
 (i.e. **duplication** and **deletion**) representing copy number
 aberrations (CNAs) are displayed, in which **duplication** and
 **deletion** of genomic segments are colored by **red** and **blue**
@@ -356,10 +357,11 @@ Load SVs in “bed” and “bedgraph” format (available for DNA-seq and RNA-s
 
 |image23|
 
-Press ``Load DNA SV breakpoints`` (or ``Load RNA SV breakpoints``)
-button, SV breakpoint tracks in bed (upper – colored by **green**) and
-bedgraph (below – colored by **blue**) format are loaded together. In
-bed format track, a window pops up after clicking a breakpoint:
+Press ``Load and refresh DNA SV breakpoints`` (or
+``Load RNA SV breakpoints``) button, SV breakpoint tracks in bed (upper
+– colored by **green**) and bedgraph (below – colored by **blue**)
+format are loaded together. In bed format track, a window pops up after
+clicking a breakpoint:
 
 -  ``Name: TCGA-V1-A9OF`` - sample name
 -  ``split: 7`` - the number of split read support

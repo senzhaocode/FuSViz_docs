@@ -71,7 +71,7 @@ Users are allowed to edit and update the SV data in table view session (e.g., co
 
 ![](4.2.1.2.Table_save.png)
 
-Users are able to output the updated and reviewed SV table into a text file, by clicking on the ‘Download Data’ button.
+Users are able to output the updated and reviewed SV table into a text file, by clicking on the `Download Data` button.
 
 #### Wordcloud – prevalence of SV-related genes across samples
 
@@ -152,7 +152,7 @@ Press `Download circular plot`, and current page is saved as a htmlwidget.
 
 ![](4.4.1.Load_SVs_in_bedpe_format.png)
 
-Press `Load DNA SV track in bedpe` button, intra-chromosome SVs are denoted as curves that link breakpoint sites. After clicking a curve, a window pops up with a feature description of the selected SV, e.g.  
+Press `Load and refresh DNA SV track in bedpe` button, intra-chromosome SVs are denoted as curves that link breakpoint sites. After clicking a curve, a window pops up with a feature description of the selected SV, e.g.  
 
 * `Region1: chr17 19901107-19901107` - breakpoint site/interval of first end of SV
 * `Region2: chr17 63545711-63545711` - breakpoint site/interval of second end of SV
@@ -166,7 +166,7 @@ Some options in the panel are used to filter and prioritize SVs (e.g. `Min_Dist`
 
 ![](4.4.2.Load_SVs_in_segment_format.png)
 
-Press `Load DNA SV track in seg` button, two types of SVs (i.e. **duplication** and **deletion**) representing copy number aberrations (CNAs) are displayed, in which **duplication** and **deletion** of genomic segments are colored by **red** and **blue** bars, respectively. A window pops up with a feature description of the clicked bar, e.g.  
+Press `Load and refresh in seg` button, two types of SVs (i.e. **duplication** and **deletion**) representing copy number aberrations (CNAs) are displayed, in which **duplication** and **deletion** of genomic segments are colored by **red** and **blue** bars, respectively. A window pops up with a feature description of the clicked bar, e.g.  
 
 * `chr: chromosome` - chromosome name
 * `start: 218326007` - start coordinate of segment interval
@@ -186,7 +186,7 @@ If users are interested in CNAs overlapping/within a target region, a subset of 
 
 ![](4.4.3.Load_SVs_in_bed_and_bedgraph_format.png)
 
-Press `Load DNA SV breakpoints` (or `Load RNA SV breakpoints`) button, SV breakpoint tracks in bed (upper – colored by **green**) and bedgraph (below – colored by **blue**) format are loaded together. In bed format track, a window pops up after clicking a breakpoint:
+Press `Load and refresh DNA SV breakpoints` (or `Load RNA SV breakpoints`) button, SV breakpoint tracks in bed (upper – colored by **green**) and bedgraph (below – colored by **blue**) format are loaded together. In bed format track, a window pops up after clicking a breakpoint:
 
 * `Name: TCGA-V1-A9OF` - sample name
 * `split: 7` - the number of split read support
