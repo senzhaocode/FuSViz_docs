@@ -1,6 +1,6 @@
 ## Appendix
 
-Although FuSViz is designed for interpretation and visualization of SVs in sample cohort, it can be utilized for single sample analysis together with read alignments as well. Import of read alignment is allowed in **Linear** and **Two-way** modules.
+Although FuSViz is designed for interpretation and visualization of SVs in a sample cohort, it can be utilized for single sample analysis together with read alignments as well. Read alignments from DNA-seq and RNA-seq data are able to be imported in **Linear** and **Two-way** modules.
 
 ### Quality control of SVs via read alignment in Linear module
 

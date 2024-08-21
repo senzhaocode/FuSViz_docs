@@ -325,7 +325,7 @@ Load SVs in “segment” format (only available for DNA-seq SVs)
 
 |image20|
 
-Press ``Load and refresh in seg`` button, two types of SVs
+Press ``Load and refresh DNA SV track in seg`` button, two types of SVs
 (i.e. **duplication** and **deletion**) representing copy number
 aberrations (CNAs) are displayed, in which **duplication** and
 **deletion** of genomic segments are colored by **red** and **blue**
@@ -338,10 +338,11 @@ clicked bar, e.g. 
 -  ``value: 1`` (**duplication**) / ``-1`` (**deletion**)
 -  ``sample: TCGA-HC-7738`` - sample name
 
-Here, the layout of seg track is shown as ``Expand`` mode (default value
-in ``Sample Height`` setting). Users can adjust the size of track via
-``Set track height`` setting or choose ``Squish`` option in
-``Sample Height`` setting to display all samples. An example below,
+Here, the layout of seg track is set as ``Expand`` mode (default value)
+in the configuration and user is able to choose ``Squish`` option to
+show **duplication** and **deletion** events in a compact way. For a
+customized adjustment of the track size, it can be done via
+``Set track height`` setting. An example below,
 
 |image21|
 
@@ -357,11 +358,11 @@ Load SVs in “bed” and “bedgraph” format (available for DNA-seq and RNA-s
 
 |image23|
 
-Press ``Load and refresh DNA SV breakpoints`` (or
-``Load RNA SV breakpoints``) button, SV breakpoint tracks in bed (upper
-– colored by **green**) and bedgraph (below – colored by **blue**)
-format are loaded together. In bed format track, a window pops up after
-clicking a breakpoint:
+Press ``Load and refresh DNA breakpoints in bed`` (or
+``Load and refresh RNA breakpoints in bed``) button, SV breakpoint
+tracks in bed (upper – colored by **green**) and bedgraph (below –
+colored by **blue**) format are loaded together. In bed format track, a
+window pops up after clicking a breakpoint:
 
 -  ``Name: TCGA-V1-A9OF`` - sample name
 -  ``split: 7`` - the number of split read support
@@ -376,7 +377,7 @@ clicking a breakpoint:
    one-based end position of the clicked SV breakpoint
 
 Bedgraph tracks display the frequency of recurrent breakpoints across
-samples. After clicking one peak, the frequency (e.g. ``value: 1``) of
+samples. After clicking one peak, the frequency (e.g. ``value: 1``) of a
 breakpoint (e.g. ``Position: 57040074-57040076``) is shown in a pop-up
 window.
 
@@ -438,10 +439,10 @@ Example 1: identify recurrent duplications involving an upstream enhancer of AR 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Loaded tracks from the top denote chromosome ideogram, gene annotation
-(NCBI RefSeq), SV in segment format (**Duplication** and **Deletion**),
+(NCBI RefSeq), SV in segment format (**duplication** and **deletion**),
 SV in bedpe format and user-defined bed file (enhancers_sort.bed.gz).
 Dashline box highlights a highly recurrent duplication of an upstream
-enhancer *GHXI66900* of *AR* gene in a sample cohort.
+enhancer *GHXI66900* for *AR* gene in a sample cohort.
 
 |image29|
 
@@ -650,8 +651,8 @@ and *ETV1* expression due to a “hitchhiking effect” of overexpressed
 DNA_SV_network_hub and RNA_SV_network_hub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A table summarizes network centrality/hub score. The ``nodes`` column is
-marked by three colors (``red: oncogenes``,
+A table is generated to summarize network centrality/hub score. The
+``nodes`` column is marked by three colors (``red: oncogenes``,
 ``blue: tumor suppressor genes`` and ``orange: cancer-related genes``).
 Two different values, ``degree`` and ``score``, represent the number of
 edges linking to a node and the number of samples involving SV events

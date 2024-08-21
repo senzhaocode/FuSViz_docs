@@ -36,9 +36,9 @@ their respective characteristics? Why to combine them?**
    breakpoint in intergenic regions, duplications and deletions can lead
    to an alteration of genomic regulatory elements (e.g. enhancers or
    TADs). One common feature of SV rearrangement is to break up DNA
-   sequence, which disrupts a proper expression or translation of one
-   gene (e.g. tumor suppressor), finally giving rise to a reduced
-   activation or function loss of the gene.
+   sequence, which disrupts a proper expression or translation of tumor
+   suppressor gene, finally giving rise to a reduced activation or
+   function loss of the gene.
 -  In comparison, RNA-seq data is used to address whether a fusion gene
    could transcribe to a fusion transcript and produce a putative
    chimeric protein with an in-frame outcome. Although breakpoints of
@@ -77,20 +77,20 @@ could I make a filtration on SVs.**
    **DEL** in the input format of FuSViz. Such an analysis is provided
    by clicking the button ``Load and refresh DNA SV Track in seg`` in
    Linear plot module. In addition, it can be done by using ``SV_type``
-   Select DropDown to control the type of SVs for a customized analysis.
+   Select box to control the type of SVs for a customized analysis.
 
 **5. Can it be possible to utilize FuSViz for analysis of a single
 sample and ‘tumor-normal’ pairwise samples?**
 
--  Users could utilize ``name`` or ``Sample`` in Select DropDown to
-   focus on their interested samples. Moreover, a few functionalities
-   are provided to enhance the single sample analysis by allowing import
-   of read alignment file in **linear module** (e.g. SV quality control;
-   see **Appendix** section) and make a fusion plot including read
-   converage of partner genes in **two-way module** in a CLI way.
-   However, FuSViz is not designed for a comparison analysis between
-   “tumor” and “normal” pairs except for exploring genetic differences
-   in read alignments.
+-  Users could utilize ``name`` or ``Sample`` in Select box to focus on
+   their interested samples. Moreover, a few functionalities are
+   provided to enhance the single sample analysis by allowing import of
+   read alignment file in **linear module** (e.g. SV quality control in
+   **Appendix** section) and make a fusion plot including read converage
+   of partner genes in **two-way module** under a CLI mode. However,
+   FuSViz is not designed for a comparison analysis between “tumor” and
+   “normal” pairs except for exploring genetic differences in read
+   alignments.
 
 **6. Is it possible for FuSViz to analyze SV calls from Non-human
 organisms?**
@@ -107,14 +107,14 @@ organisms?**
 
 -  No, there are several reasons for it:
 
-   -  First, genotype information of SVs is available in raw output of
+   -  Firstly, genotype information of SVs is available in raw output of
       only a few callers.
-   -  Second, the precision of genotype information highly depends on
+   -  Secondly, the precision of genotype information highly depends on
       the type of SVs. In general, duplication and deletion can be
       genotyped relatively accurate. Genotype of insertion and inversion
       can be inferred but with less precision. Most tools have a limited
-      capacity to do translocation genotyping.
-   -  Third, it is challenging to make a consensus on SV genotypes in
+      capacity to genotype translocation.
+   -  Thirdly, it is challenging to make a consensus on SV genotypes in
       merging process if discordance from different callers is present.
 
 **8. Does FuSViz have a functionality to allow alignment file (BAM) as
@@ -122,7 +122,7 @@ input?**
 
 -  Though the main purpose of FuSViz is used to visualize and interpret
    SVs of multiple samples, users can load read alignments in the
-   ``file upload`` panel of **Linear module** or using **Two-way
-   module** for single sample analysis (see **Appendix** - how to plot
-   read coverage for a customized analysis of one specific sample using
+   ``file upload`` box of **Linear module** or using **Two-way module**
+   for single sample analysis (see **Appendix** - how to plot read
+   coverage for a customized analysis of one specific sample using
    alignment file, either from RNA-seq/DNA-seq or both).

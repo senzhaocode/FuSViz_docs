@@ -166,7 +166,7 @@ Some options in the panel are used to filter and prioritize SVs (e.g. `Min_Dist`
 
 ![](4.4.2.Load_SVs_in_segment_format.png)
 
-Press `Load and refresh in seg` button, two types of SVs (i.e. **duplication** and **deletion**) representing copy number aberrations (CNAs) are displayed, in which **duplication** and **deletion** of genomic segments are colored by **red** and **blue** bars, respectively. A window pops up with a feature description of the clicked bar, e.g.  
+Press `Load and refresh DNA SV track in seg` button, two types of SVs (i.e. **duplication** and **deletion**) representing copy number aberrations (CNAs) are displayed, in which **duplication** and **deletion** of genomic segments are colored by **red** and **blue** bars, respectively. A window pops up with a feature description of the clicked bar, e.g.  
 
 * `chr: chromosome` - chromosome name
 * `start: 218326007` - start coordinate of segment interval
@@ -174,7 +174,7 @@ Press `Load and refresh in seg` button, two types of SVs (i.e. **duplication** a
 * `value: 1` (**duplication**) / `-1` (**deletion**)
 * `sample: TCGA-HC-7738` - sample name
 
-Here, the layout of seg track is shown as `Expand` mode (default value in `Sample Height` setting). Users can adjust the size of track via `Set track height` setting or choose `Squish` option in `Sample Height` setting to display all samples. An example below,
+Here, the layout of seg track is set as `Expand` mode (default value) in the configuration and user is able to choose `Squish` option to show **duplication** and **deletion** events in a compact way. For a customized adjustment of the track size, it can be done via `Set track height` setting. An example below,
 
 ![](4.4.2.Load_SVs_in_segment_format_squish.png)
 
@@ -186,7 +186,7 @@ If users are interested in CNAs overlapping/within a target region, a subset of 
 
 ![](4.4.3.Load_SVs_in_bed_and_bedgraph_format.png)
 
-Press `Load and refresh DNA SV breakpoints` (or `Load RNA SV breakpoints`) button, SV breakpoint tracks in bed (upper – colored by **green**) and bedgraph (below – colored by **blue**) format are loaded together. In bed format track, a window pops up after clicking a breakpoint:
+Press `Load and refresh DNA breakpoints in bed` (or `Load and refresh RNA breakpoints in bed`) button, SV breakpoint tracks in bed (upper – colored by **green**) and bedgraph (below – colored by **blue**) format are loaded together. In bed format track, a window pops up after clicking a breakpoint:
 
 * `Name: TCGA-V1-A9OF` - sample name
 * `split: 7` - the number of split read support
@@ -196,7 +196,7 @@ Press `Load and refresh DNA SV breakpoints` (or `Load RNA SV breakpoints`) butto
 * `Partner_start` and `Partner_end: 48673055 and 48673059` - the zero-based starting and one-based end position of the other breakpoint of the SV on `Partner_chr`  
 * `chrX: 95551524-95551528` - the chromosome, zero-based starting and one-based end position of the clicked SV breakpoint  
 
-Bedgraph tracks display the frequency of recurrent breakpoints across samples. After clicking one peak, the frequency (e.g. `value: 1`) of breakpoint (e.g. `Position: 57040074-57040076`) is shown in a pop-up window.
+Bedgraph tracks display the frequency of recurrent breakpoints across samples. After clicking one peak, the frequency (e.g. `value: 1`) of a breakpoint (e.g. `Position: 57040074-57040076`) is shown in a pop-up window.
 
 Bed and bedgraph tracks could be used for an identiification of breakpoint hotspot regions (see breakpoint hotspots highlighted in dashline boxes, which links a recurrent inversion between `chrX:2197061-2197064` and `chrX:48672810-48672813`).
 
@@ -235,7 +235,7 @@ IGV browser provides a button `Save SVG` to download loaded tracks as SVG format
 
 ##### Example 1: identify recurrent duplications involving an upstream enhancer of AR gene
 
-Loaded tracks from the top denote chromosome ideogram, gene annotation (NCBI RefSeq), SV in segment format (**Duplication** and **Deletion**), SV in bedpe format and user-defined bed file (enhancers_sort.bed.gz). Dashline box highlights a highly recurrent duplication of an upstream enhancer *GHXI66900* of *AR* gene in a sample cohort.
+Loaded tracks from the top denote chromosome ideogram, gene annotation (NCBI RefSeq), SV in segment format (**duplication** and **deletion**), SV in bedpe format and user-defined bed file (enhancers_sort.bed.gz). Dashline box highlights a highly recurrent duplication of an upstream enhancer *GHXI66900* for *AR* gene in a sample cohort.
 
 ![](4.4.7.Combine_different_tracks_together_example1.png)
 
@@ -328,7 +328,7 @@ Choose *ERG* in Select box `Node search` of `RNA_SV_panel`, and the sub-network 
 
 #### DNA_SV_network_hub and RNA_SV_network_hub
 
-A table summarizes network centrality/hub score. The `nodes` column is marked by three colors (`red: oncogenes`, `blue: tumor suppressor genes` and `orange: cancer-related genes`). Two different values, `degree` and `score`, represent the number of edges linking to a node and the number of samples involving SV events for a node. By ranking table via `degree` and `score`, users could identify the hub with a high complexity.
+A table is generated to summarize network centrality/hub score. The `nodes` column is marked by three colors (`red: oncogenes`, `blue: tumor suppressor genes` and `orange: cancer-related genes`). Two different values, `degree` and `score`, represent the number of edges linking to a node and the number of samples involving SV events for a node. By ranking table via `degree` and `score`, users could identify the hub with a high complexity.
 
 ![](4.6.3.DNA_RNA_network_hub.png)
 
