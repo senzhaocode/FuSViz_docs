@@ -4,11 +4,11 @@ Although FuSViz is designed for interpretation and visualization of SVs in a sam
 
 ### Quality control of SVs via read alignment in Linear module
 
-1. Load annotation resource data of human genome **hg19** version, then upload RNA-seq alignment and index files at the path `~/inst/extdata/RNA-seq-BRAF.bam` and `~/inst/extdata/RNA-seq-BRAF.bam.bai` of FuSViz package.
+1. Load annotation resource data of human genome **hg19** version, then upload RNA-seq alignment and index files at the path `~/inst/example/RNA-seq-BRAF.bam` and `~/inst/example/RNA-seq-BRAF.bam.bai` of FuSViz package.
 
 ![](6.1.Load_local_alignment_track_in_Linear_module_1.png)
 
-2. Import an example file of RNA SV calls at the path `~/inst/extdata/BRAF_demo.txt` of FuSViz package. Click on the index of the 6th row (i.e., *HNRNPDL-BRAF*) that links to the linear view session, then genomic coordinates of *HNRNPDL* and *BRAF* breakpoints are shown in two split windows.
+2. Import an example file of RNA SV calls at the path `~/inst/example/BRAF_demo.txt` of FuSViz package. Click on the index of the 6th row (i.e., *HNRNPDL-BRAF*) that links to the linear view session, then genomic coordinates of *HNRNPDL* and *BRAF* breakpoints are shown in two split windows.
 
 ![](6.1.Load_local_alignment_track_in_Linear_module_2.png)
 
