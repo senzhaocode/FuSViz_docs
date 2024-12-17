@@ -6,7 +6,7 @@ About
 
 |image1|
 
-**FuSViz** is a web-browser based tool to visualize, interpret and
+*FuSViz* is a web-browser based tool to visualize, interpret and
 prioritize genomic/transcriptomic structural variations (SVs) of a
 sample cohort. It provides multiple solutions and an interactive user
 interface to investigate the prevalence and recurrence of SVs and their
@@ -20,12 +20,12 @@ implementation of this tool facilitates to explore and report both
 recurrent and private SVs, potentially assisting with pathogenesis and
 biomarker discovery in cancer genomic research.
 
-User interface overview of **FuSViz** dashboard:
+User interface overview of *FuSViz* dashboard:
 
 |image2|
 
-Why to use FuSViz?
-~~~~~~~~~~~~~~~~~~
+Why to use *FuSViz*?
+~~~~~~~~~~~~~~~~~~~~
 
 The tool is attempting to address the following questions:
 

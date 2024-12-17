@@ -9,9 +9,9 @@ Load genomic annotations and input files
 Running offline
 ^^^^^^^^^^^^^^^
 
-By default, the initiation of IGV browser in FuSViz **linear module**
+By default, the initiation of IGV browser in *FuSViz* **linear module**
 needs an online environment. However, with some additional
-configurations, it is able to run FuSViz on an offline system. Users
+configurations, it is able to run *FuSViz* on an offline system. Users
 will need to manually upload pre-defined genome reference and index
 files, and cytoband annotation for launching the IGV session.
 
@@ -67,7 +67,7 @@ version (GRCm39) are provided, and they include:
    `hg19 <http://grch37.ensembl.org/index.html>`__, **ENSEMBL Release
    111** gene annotation on reference chromosomes for
    `GRCm39 <https://jan2024.archive.ensembl.org/Mus_musculus/Info/Index>`__).
-   NOTE: scaffolds and contigs are excluded in FuSViz analysis.
+   NOTE: scaffolds and contigs are excluded in *FuSViz* analysis.
 -  `Chromosome cytobands from UCSC Genome
    Browser <http://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=cytoBand&hgta_table=cytoBand&hgta_doSchema=describe+table+schema>`__
 -  Gene symbol and synonymous names - the resource for approved human
@@ -108,7 +108,7 @@ version (GRCm39) are provided, and they include:
 Import SV and mutation files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-See ``Input`` section - requisite input format for FuSViz and how to
+See ``Input`` section - requisite input format for *FuSViz* and how to
 prepare the input file.
 
 Table overview of import data
@@ -134,7 +134,8 @@ Table – save the updated table
 
 Users are allowed to edit and update the SV data in table view session
 (e.g., correct the breakpoint coordinates if the provisional one proves
-inaccurate and update gene symbol name if necessary).
+inaccurate, update gene symbol name if necessary and add a comment on
+the quality of SV).
 
 Table – edit and update data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -291,7 +292,7 @@ interface is automatically launched by selecting a genome reference
 version (hg19 or hg38) in
 ``Import genomic and transcriptomic annotations`` of Introduction page.
 SVs can be loaded in different types of genomic tracks and are
-illustrated per each chromosome. FuSViz accepts four types of tracks
+illustrated per each chromosome. *FuSViz* accepts four types of tracks
 (i.e. **bedpe**, **segment**, **bed** and **bedgraph** formats). Users
 could configure the setting of loaded tracks in ``SV_DNA``, ``SV_RNA``
 and ``Mut`` panels.

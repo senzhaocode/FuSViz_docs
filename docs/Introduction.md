@@ -4,13 +4,13 @@
 
 ![](logo_white_back.png)
 
-__FuSViz__ is a web-browser based tool to visualize, interpret and prioritize genomic/transcriptomic structural variations (SVs) of a sample cohort. It provides multiple solutions and an interactive user interface to investigate the prevalence and recurrence of SVs and their relevant genes in a cohort. The tool is designed for combining SVs called from DNA-seq (e.g. whole genome or target exome) and RNA-seq data to illustrate a biological implication of SVs to the partner genes and interested genomic regions in context of various annotations, and it can integrate a mutation profile (SNVs/Indels) to reveal a connection between small variants and complex genomic aberrations as well. The implementation of this tool facilitates to explore and report both recurrent and private SVs, potentially assisting with pathogenesis and biomarker discovery in cancer genomic research.
+*FuSViz* is a web-browser based tool to visualize, interpret and prioritize genomic/transcriptomic structural variations (SVs) of a sample cohort. It provides multiple solutions and an interactive user interface to investigate the prevalence and recurrence of SVs and their relevant genes in a cohort. The tool is designed for combining SVs called from DNA-seq (e.g. whole genome or target exome) and RNA-seq data to illustrate a biological implication of SVs to the partner genes and interested genomic regions in context of various annotations, and it can integrate a mutation profile (SNVs/Indels) to reveal a connection between small variants and complex genomic aberrations as well. The implementation of this tool facilitates to explore and report both recurrent and private SVs, potentially assisting with pathogenesis and biomarker discovery in cancer genomic research.
 
-User interface overview of __FuSViz__ dashboard:
+User interface overview of *FuSViz* dashboard:
 
 ![](Overview.png)
 
-### Why to use FuSViz?
+### Why to use *FuSViz*?
 
 The tool is attempting to address the following questions:
 

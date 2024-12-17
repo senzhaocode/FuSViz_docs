@@ -2,13 +2,13 @@
 
 ### Input source and format
 
-FuSViz accepts input files from three sources:
+*FuSViz* accepts input files from three sources:
 
 * Aggregated multiple-sample SV calls from RNA-seq data (e.g. [RNA_SV_example.txt](https://fusviz.s3.eu-north-1.amazonaws.com/RNA_SV_example.txt))
 * Aggregated multiple-sample SV calls from DNA-seq data (e.g. [DNA_SV_example.txt](https://fusviz.s3.eu-north-1.amazonaws.com/DNA_SV_example.txt))
 * Aggregated multiple-sample small variants (SNVs+Indels) from DNA-seq data (e.g. [TCGA.PRAD.mutect.somatic.maf](https://fusviz.s3.eu-north-1.amazonaws.com/TCGA.PRAD.mutect.somatic.maf))
 
-To run FuSViz, it needs SV calls from either one or both of DNA-seq and RNA-seq. Mutation profile is optional, but recommended.
+To run *FuSViz*, it needs SV calls from either one or both of DNA-seq and RNA-seq. Mutation profile is optional, but recommended.
 
 #### Description of input format for RNA-seq SV calls
 
@@ -23,7 +23,8 @@ To run FuSViz, it needs SV calls from either one or both of DNA-seq and RNA-seq.
 > Column 9th: **span** - the number of discordant read pairs supporting the SV.  
 > Column 10th: **strand1** – the strand direction of upstream fusion sequence.  
 > Column 11th: **strand2** – the strand direction of downstream fusion sequence.  
-> Column 12th: **untemplated_insert** – the untemplated insert sequence.  
+> Column 12th: **untemplated_insert** – the untemplated insert sequence (default: null).  
+> Column 13th: **comment** – additional comment on SV entry (default: null). 
 
 #### Description of input format for DNA-seq SV calls
 
@@ -39,10 +40,11 @@ To run FuSViz, it needs SV calls from either one or both of DNA-seq and RNA-seq.
 > Column 10th: **span** - the number of discordant read pairs supporting the SV.  
 > Column 11th: **gene1** - symbol name if the first end of SV within genic region, otherwise it is tagged as `*`.  
 > Column 12th: **gene2** - symbol name if the second end of SV within genic region, otherwise it is tagged as `*`.  
+> Column 13th: **comment** – additional comment on SV entry (default: null). 
 
 #### Description of input format for mutation profile
 
-A full description of the columns in MAF format and their definitions are at https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#introduction. **Eight** columns are required for FuSViz:
+A full description of the columns in MAF format and their definitions are at https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#introduction. **Eight** columns are required for *FuSViz*:
 
 > Column **Hugo_Symbol** - gene symbol name.  
 > Column **Chromosome** - chromosome name (must be started with “chr”).  
@@ -55,7 +57,7 @@ A full description of the columns in MAF format and their definitions are at htt
 
 ### Prepare input files for FuSViz
 
-FuSViz does not take raw output of SV callers as input. Here, we provide an in-house script **SV_standard.pl** to prepare the input format for FuSViz. In short, SV calls of sample cohort are aggregated directly if one caller is used. Sometimes multiple callers are utilized - **SV_standard.pl** firstly merges and makes a consensus set from output of multiple callers per sample, then aggregates the results of all samples together. This script depends on the tool [SURVIVOR](https://github.com/fritzsedlazeck/SURVIVOR) (download and install it according to the developer’s instruction and make it available in your `$PATH`).
+*FuSViz* does not take raw output of SV callers as input. Here, we provide an in-house script **SV_standard.pl** to prepare the input format for *FuSViz*. In short, SV calls of sample cohort are aggregated directly if one caller is used. Sometimes multiple callers are utilized - **SV_standard.pl** firstly merges and makes a consensus set from output of multiple callers per sample, then aggregates the results of all samples together. This script depends on the tool [SURVIVOR](https://github.com/fritzsedlazeck/SURVIVOR) (download and install it according to the developer’s instruction and make it available in your `$PATH`).
 
 #### Installation
 
@@ -93,7 +95,7 @@ Run an example:
 ```
 
 * **SV_standard.pl** supports a merging of DNA SVs from four callers currently. As VCF output fields of callers with different versions may be somewhat variable, we recommend users run SV calls using the following version: *Manta* (>= v1.6.0), *svaba* (>= 1.1.0), *Delly* (>= v0.8.7) and *lumpy* (>= v0.3.1). VCF file in compressed format (i.e. vcf.gz) is acceptable.
-* `Final_DNA_SVs.txt` in *output_dna_dir* directory is an example of DNA SV input file for FuSViz. In general, breakpoint is annotated with a gene symbol if it falls in a genic region, otherwise it is annotated as **'\*'**. If more than two gene annotations are available, a few prioritization rules are applied: 
+* `Final_DNA_SVs.txt` in *output_dna_dir* directory is an example of DNA SV input file for *FuSViz*. In general, breakpoint is annotated with a gene symbol if it falls in a genic region, otherwise it is annotated as **'\*'**. If more than two gene annotations are available, a few prioritization rules are applied: 
 	* Protein coding genes are always prioritised (non- 'ORF' gene is chosen when a 'ORF' gene is present).
 	* miRNA and lincRNA are prioritised if no protein coding gene annotations are available. 
 	* When gene nomenclature is not available, **ENSEMBL** gene_id is used for denotation.
@@ -126,7 +128,7 @@ input_rna_dir
 ```
 
 * **SV_standard.pl** supports a merging of RNA SVs from five callers currently. As output format of callers with differen versions may be somewhat variable, we recommend users run SV calls using the following version: *deFuse* (>= v0.8.1), *fusioncatcher* (>= v1.2.0), *arriba* (>= v2.0.0), *STAR-Fusion* (>= v1.9.1) and *Dragen* (>= v3.9.3).
-* `Final_RNA_SVs.txt` in *output_rna_dir* directory is an example of RNA SV input file for FuSViz. Names of fusion partner genes are standardized if they are incongruent (related to synonymous gene nomenclature) among multiple callers. If gene nomenclature is not available, **ENSEMBL** gene_id is used for denotation.
+* `Final_RNA_SVs.txt` in *output_rna_dir* directory is an example of RNA SV input file for *FuSViz*. Names of fusion partner genes are standardized if they are incongruent (related to synonymous gene nomenclature) among multiple callers. If gene nomenclature is not available, **ENSEMBL** gene_id is used for denotation.
 * **SV_standard.pl** applies some filters to reduce false positives: 
 	* RNA SVs nominated by any caller **MUST** meet the support number of split reads >= 2.
 	* For filtering *deFuse* calls , `splitr_span_pvalue > 0.05`, `splitr_pos_pvalue > 0.05`, `splitr_min_pvalue > 0.05`, `breakpoint_homology <= 5`, `num_multi_map/span_count < 0.2` and `probability > 0.05` need to be met.
@@ -154,7 +156,7 @@ input_rna_dir
 
 #### Input of mutation profile (optional)
 
-FuSViz utilizes input of mutation profile in Muation Annotation Format (MAF), which is tab-delimited text file with aggregated mutation information (SNVs+Indels) from multiple VCF files. In general, the tool [vcf2maf](https://github.com/mskcc/vcf2maf) is used to convert VCF to MAF and aggregate results of multiple samples.
+*FuSViz* utilizes input of mutation profile in Muation Annotation Format (MAF), which is tab-delimited text file with aggregated mutation information (SNVs+Indels) from multiple VCF files. In general, the tool [vcf2maf](https://github.com/mskcc/vcf2maf) is used to convert VCF to MAF and aggregate results of multiple samples.
 
 #### Run SV_standard.pl via Singularity container
 

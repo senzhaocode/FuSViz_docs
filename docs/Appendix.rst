@@ -1,8 +1,8 @@
 Appendix
 --------
 
-Although FuSViz is designed for interpretation and visualization of SVs
-in a sample cohort, it can be utilized for single sample analysis
+Although *FuSViz* is designed for interpretation and visualization of
+SVs in a sample cohort, it can be utilized for single sample analysis
 together with read alignments as well. Read alignments from DNA-seq and
 RNA-seq data are able to be imported in **Linear** and **Two-way**
 modules.
@@ -13,12 +13,12 @@ Quality control of SVs via read alignment in Linear module
 1. Load annotation resource data of human genome **hg19** version, then
    upload RNA-seq alignment and index files at the path
    ``~/inst/example/RNA-seq-BRAF.bam`` and
-   ``~/inst/example/RNA-seq-BRAF.bam.bai`` of FuSViz package.
+   ``~/inst/example/RNA-seq-BRAF.bam.bai`` of *FuSViz* package.
 
 |image1|
 
 2. Import an example file of RNA SV calls at the path
-   ``~/inst/example/BRAF_demo.txt`` of FuSViz package. Click on the
+   ``~/inst/example/BRAF_demo.txt`` of *FuSViz* package. Click on the
    index of the 6th row (i.e., *HNRNPDL-BRAF*) that links to the linear
    view session, then genomic coordinates of *HNRNPDL* and *BRAF*
    breakpoints are shown in two split windows.
@@ -58,7 +58,7 @@ Visualize SV event together with read coverage using Two-way module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This functionality is performed under CLI environment (**NOT** available
-via web interface). Firstly, load FuSViz package in R:
+via web interface). Firstly, load *FuSViz* package in R:
 
 ::
 

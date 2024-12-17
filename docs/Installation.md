@@ -1,8 +1,12 @@
 ## Installation
 
+### Prerequisite for FuSViz running
+
+A minimum of **4GB** physical memory is required for running *FuSViz* in user's machine (we recommend physical memory **>= 8GB**). NOTE: insufficient memory allocation can result in a slow response, the screen hanging on, or even a software crash.
+
 ### Deploy with docker/podman
 
-#### Install Docker engine in your OS platform
+#### Install Docker/Podman engine in your OS platform
 
 + Install [Docker on Linux](https://docs.docker.com/engine/installation/linux/)
 + Install [Docker on MacOS](https://docs.docker.com/engine/installation/mac/)
@@ -10,32 +14,34 @@
 
 #### Pull pre-built FuSViz image (release version) from docker hub
 
-Run `docker pull senzhao/fusviz_shiny_app:1.7.0`, then check the image by typing `docker images`
+Run `docker pull --platform=linux/amd64 senzhao/fusviz_shiny_app:1.8.0`, then check the image by typing `docker images`
 
-Optional: if user would like to build image (developmental version), download soruce code and change to directory `cd ~/FuSViz-master`; run `docker build --rm -t senzhao/fusviz_shiny_app:latest -f Dockerfile .`.
+Optional: if user would like to build image (developmental version), download soruce code and change to directory `cd ~/FuSViz-master`; run `docker build --platform=linux/amd64 --rm -t senzhao/fusviz_shiny_app:latest -f Dockerfile .`.
 
 #### Launch FuSViz app
 
-Run `docker run --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.7.0`; then open web browser and input address `127.0.0.1:4000`
+Run `docker run --platform=linux/amd64 --rm -p 4000:3838 senzhao/fusviz_shiny_app:1.8.0`; then open web browser and input address `127.0.0.1:4000`. If TCP port 4000 on `127.0.0.1` of the host is occupied, users can use other port values to bind port 3838 of the container.
 
-**NOTE**: the following browsers have been tested and are supported well
+NOTE: the following browsers have been tested and are supported well
 
 + Safari (version >= 14.0)
 + Mozilla Firefox (version >= 83.0)
 + Google Chrome (version >= 87.0.4280.67 official build x86_64)
 + Microsoft Edge (version >= 90)
 
-### Deploy without singularity/apptainer
+### Deploy with singularity/apptainer for linux distribution
 
-A singularity container of FuSViz is available for [dowload](https://fusviz.s3.eu-north-1.amazonaws.com/fusviz_v1.7.0.sif), and we recommend run it using singularity version (>= 3.7.3):
+A apptainer/singularity container of *FuSViz* is available for [dowload](https://fusviz.s3.eu-north-1.amazonaws.com/fusviz_v1.8.0.sif), and we recommend run it using singularity version (>= 3.7.3):
 
-`singularity run fusviz_v1.7.0.sif 4000`, then open web browser and input address.
+`singularity run fusviz_v1.8.0.sif 4000`, then open web browser and input address.
+
+NOTE: the *FuSViz* apptainer/singularity container is specific for running under **Linux OS (e.g. Debian, Ubuntu, Redhat and CentOS)**, which is incompatible with **Apple M1/M2 machine**. Users have to use the **Docker/Podman** container to run *FuSViz* under Mac OS.
 
 ### Deploy without container
 
-#### Prerequisite
+#### Requirement
 
-FuSViz is a shiny app and requires R working environment:
+*FuSViz* is a shiny app and requires R working environment:
 
 + __R (>=4.0.0)__: https://www.r-project.org/; [RStudio](https://rstudio.com/products/rstudio/download/#download) is recommended but not mandatory. 
 + For windows users, if an earlier version of R (< 4.0) is present in the system, please uninstall it firstly and make sure only R >=4.0 is available.
@@ -60,6 +66,8 @@ FuSViz is a shiny app and requires R working environment:
 			export C_INCLUDE_PATH
 			LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/OpenSSL_path/lib
 			export LD_LIBRARY_PATH
+			LIBRARY_PATH=$LIBRARY_PATH:/OpenSSL_path/lib
+			export LD_LIBRARY_PATH
 
 	  * Install R package [openssl](https://cran.r-project.org/web/packages/openssl/index.html): `install.packages("openssl")`
 
@@ -77,6 +85,8 @@ FuSViz is a shiny app and requires R working environment:
 			export CPLUS_INCLUDE_PATH
 			LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/libxml2_path/lib
 			export LD_LIBRARY_PATH
+			LIBRARY_PATH=$LIBRARY_PATH:/libxml2_path/lib
+			export LD_LIBRARY_PATH
 
 	  * Install R package [xml2](https://cran.r-project.org/web/packages/XML/index.html): `install.packages("xml2")`
 
@@ -90,6 +100,8 @@ FuSViz is a shiny app and requires R working environment:
 			C_INCLUDE_PATH=/libjpeg_path/include
 			export C_INCLUDE_PATH
 			LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/libjpeg_path/lib
+			export LD_LIBRARY_PATH
+			LIBRARY_PATH=$LIBRARY_PATH:/libjpeg_path/lib
 			export LD_LIBRARY_PATH
 
 	  * Install R package [jpeg](https://cran.r-project.org/web/packages/jpeg/index.html): `install.packages("jpeg")`
@@ -105,6 +117,8 @@ FuSViz is a shiny app and requires R working environment:
 			export C_INCLUDE_PATH
 			LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/libpng_path/lib
 			export LD_LIBRARY_PATH
+			LIBRARY_PATH=$LIBRARY_PATH:/libpng_path/lib
+			export LD_LIBRARY_PATH
 
 	  * Install R package [png](https://cran.r-project.org/web/packages/png/index.html): `install.packages("png")`
 
@@ -119,5 +133,5 @@ FuSViz is a shiny app and requires R working environment:
 
 ### Host FuSViz on a single server
 
-Users could host FuSViz Shiny application at server end (only linux OS distributions are supported) using Shiny Server.
+Users is able to host *FuSViz* Shiny application at server end (only linux OS distributions are supported) using Shiny Server.
 Please follow the installation and adminstration of [Shiny Server](https://www.rstudio.com/products/shiny/download-server/)
